@@ -1,5 +1,9 @@
-const Category = () => {
-	return <div>Category</div>
+const CategoryPage = () => {
+	return (
+		<div>
+			CategoryPage
+		</div>
+	)
 }
 
-export default Category
+export default CategoryPage

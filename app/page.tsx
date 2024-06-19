@@ -1,9 +1,25 @@
-const Home = () => {
+import { Box, Button, Text } from '@chakra-ui/react'
+import Link from 'next/link'
+
+const HomePage = () => {
 	return (
-		<div>
-			Home
-		</div>
+		<Box>
+			<Text as={'h1'}>
+				Welcome to TestWP blog
+			</Text>
+			<Box mt={1}>
+				<Link href={'/blog'}>
+					<Button
+						colorScheme={'blue'}
+					>
+						<Text>
+							Go to blog
+						</Text>
+					</Button>
+				</Link>
+			</Box>
+		</Box>
 	)
 }
 
-export default Home
+export default HomePage

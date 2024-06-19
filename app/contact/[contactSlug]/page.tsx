@@ -1,5 +1,9 @@
-const ContactSlug = () => {
-    return <div>ContactSlug</div>
+const ContactSlugPage = () => {
+    return (
+      <div>
+          ContactSlugPage
+      </div>
+    )
 }
 
-export default ContactSlug
+export default ContactSlugPage

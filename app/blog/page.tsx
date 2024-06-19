@@ -1,9 +1,9 @@
-const Blog = () => {
+const BlogPage = () => {
 	return (
 		<div>
-			Blog
+			BlogPage
 		</div>
 	)
 }
 
-export default Blog
+export default BlogPage

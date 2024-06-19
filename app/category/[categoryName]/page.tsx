@@ -1,5 +1,9 @@
-const CategoryName = () => {
-    return <div>CategoryName</div>
+const CategoryNamePage = () => {
+	return (
+		<div>
+			CategoryNamePage
+		</div>
+	)
 }
 
-export default CategoryName
+export default CategoryNamePage

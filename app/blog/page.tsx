@@ -1,8 +1,16 @@
-const BlogPage = () => {
+import { getAllPosts } from '@/blog/blog.service'
+import BlogList from '@/blog/components/blogList.component'
+import PageTitle from '@/shared/components/pageTitle.component'
+
+const BlogPage = async () => {
+	
+	const allPosts = await getAllPosts()
+	
 	return (
-		<div>
-			BlogPage
-		</div>
+		<>
+			<PageTitle title={"Блог"} subtitle={"Последние посты"}/>
+			<BlogList allPosts={allPosts}/>
+		</>
 	)
 }
 

@@ -15,9 +15,6 @@ const TheHeaderComponent = () => {
 		>
 			<LogoTheHeaderComponent />
 			<NavTheHeaderComponent />
-			<Text>
-				Header
-			</Text>
 		</Container>
 	)
 }

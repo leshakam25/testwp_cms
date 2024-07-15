@@ -1,21 +1,10 @@
-import type { IPost } from '@/blog/blog.interface'
+import type { IPost, IPosts } from '@/blog/blog.interface'
 import BlogListItem from '@/blog/components/BlogListItem.component'
-import BlogListItemComponent from '@/blog/components/BlogListItem.component'
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 interface BlogListProps {
-	allPosts: {
-		nodes: IPost[];
-		pageInfo: {
-			endCursor: string;
-			hasNextPage: boolean;
-			hasPreviousPage: boolean;
-			startCursor: string;
-		};
-		totalCount: number;
-		totalPages: number;
-	};
+	allPosts: IPosts
 }
 
 const BlogList = ({ allPosts }: BlogListProps) => {
@@ -32,7 +21,7 @@ const BlogList = ({ allPosts }: BlogListProps) => {
 					return (
 						<BlogListItem
 							post={el}
-							key={el.id}
+							key={el.slug}
 						/>
 					)
 				})

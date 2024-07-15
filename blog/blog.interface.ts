@@ -1,3 +1,15 @@
+export interface IPosts {
+	nodes: IPost[];
+	pageInfo: {
+		endCursor: string;
+		hasNextPage: boolean;
+		hasPreviousPage: boolean;
+		startCursor: string;
+	};
+	totalCount: number;
+	totalPages: number;
+}
+
 export interface IPost {
 	id: string;
 	title: string;
@@ -11,6 +23,6 @@ export interface IPost {
 export interface ICategories {
 	nodes: {
 		name: string;
-    slug: string;
+		slug: string;
 	}
 }

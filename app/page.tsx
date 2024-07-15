@@ -5,7 +5,10 @@ import Link from 'next/link'
 const HomePage = () => {
 	return (
 		<Box>
-			<PageTitle title={"Домашняя страница"} subtitle={"Дашборд"}/>
+			<PageTitle
+				title={"Домашняя страница"}
+				subtitle={"Дашборд"}
+			/>
 			
 			<Text as={'h1'}>
 				Welcome to TestWP blog

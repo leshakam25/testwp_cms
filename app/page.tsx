@@ -1,4 +1,4 @@
-import PageTitle from '@/shared/components/pageTitle.component'
+import PageTitle from '@/shared/components/PageTitle.component'
 import { Box, Button, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 

@@ -10,14 +10,37 @@ export interface IPosts {
 	totalPages: number;
 }
 
+interface IPageInfo {
+	endCursor: string;
+	hasNextPage: boolean;
+	hasPreviousPage: boolean;
+	startCursor: string;
+}
+
 export interface IPost {
 	id: string;
 	title: string;
 	slug: string;
 	excerpt: string;
 	date: string;
-	featureImage?: string;
+	featuredImage?: IFeaturedImage;
 	categories?: ICategories[]
+}
+
+
+export interface IFeaturedImage {
+	node: {
+		mediaDetails: {
+			file: string;
+			sizes: IFeaturedImageSizes[]
+		};
+	};
+}
+
+export interface IFeaturedImageSizes {
+	sourceUrl: string,
+	width: number,
+	height: number
 }
 
 export interface ICategories {

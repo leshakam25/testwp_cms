@@ -1,4 +1,6 @@
 import type { IPost } from '@/blog/blog.interface'
+import FeaturedImage from '@/blog/components/FeaturedImage.component'
+import DateComponent from '@/shared/components/Date.component'
 import {
 	Card,
 	CardBody,
@@ -7,7 +9,6 @@ import {
 	Text
 } from '@chakra-ui/react'
 import React from 'react'
-import Image from 'next/image'
 
 interface BlogListItemProps {
 	post: IPost
@@ -22,21 +23,24 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 			bg={'gray.100'}
 			border={'none'}
 		>
-			<Image
-				width={200}
-				height={200}
-				src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
-				alt='Caffe Latte'
+			
+			<FeaturedImage
+				postImage={post.featuredImage}
+				postSlug={post.slug}
 			/>
+			
 			<Stack>
 				<CardBody>
-					<Heading size='md'>{post.title}</Heading>
-					<div dangerouslySetInnerHTML={{__html: post.excerpt}} >
-					</div>
+					<Heading size='md'>
+						{post.title}
+					</Heading>
+					<Text
+						dangerouslySetInnerHTML={{__html: post.excerpt}} >
+					</Text>
 				</CardBody>
 				
 				<CardFooter>
-					<Text>{post.date}</Text>
+					<DateComponent dateString={post.date}/>
 					{/* <Button variant='solid' colorScheme='blue'> */}
 					{/*   Buy Latte */}
 					{/* </Button> */}

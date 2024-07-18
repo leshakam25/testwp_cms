@@ -1,4 +1,4 @@
-import PageTitle from '@/shared/components/pageTitle.component'
+import PageTitle from '@/shared/components/PageTitle.component'
 
 const AboutPage = () => {
 	return (

@@ -1,6 +1,6 @@
 import type { IPost, IPosts } from '@/blog/blog.interface'
 import BlogListItem from '@/blog/components/BlogListItem.component'
-import { Box } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import React from 'react'
 
 interface BlogListProps {
@@ -9,7 +9,8 @@ interface BlogListProps {
 
 const BlogList = ({ allPosts }: BlogListProps) => {
 	return (
-		<Box
+		<Container
+			maxWidth={'6xl'}
 			display={'flex'}
 			flexDirection={'column'}
 			justifyContent={'center'}
@@ -26,7 +27,7 @@ const BlogList = ({ allPosts }: BlogListProps) => {
 					)
 				})
 			}
-		</Box>
+		</Container>
 	)
 }
 

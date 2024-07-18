@@ -10,7 +10,7 @@ export const getAllPosts = async () => {
                   date
                   slug
                   title
-                  excerpt
+                  excerpt(format: RENDERED)
                   featuredImage {
                     node {
                       mediaDetails {
@@ -39,8 +39,45 @@ export const getAllPosts = async () => {
               }
           }`
 	}
-	const resJson = await graphqlRequest(query.query)
-	console.log(resJson.data.posts)
 	
+	const resJson = await graphqlRequest(query.query)
 	return resJson.data.posts
+}
+
+export const getPostBySlug = async (postSlug: string) => {
+	const query = {
+		query: `query getSinglePost($postSlug: ID!) {
+  post(id: $postSlug, idType: SLUG) {
+    id
+    content(format: RENDERED)
+    excerpt(format: RENDERED)
+    modified
+    slug
+    title(format: RENDERED)
+    featuredImage {
+      node {
+        mediaDetails {
+          sizes {
+            sourceUrl
+            width
+            height
+          }
+        }
+      }
+    }
+  }
+  categories {
+    nodes {
+      name
+      slug
+    }
+  }
+}
+
+		`
+	}
+	
+	const resJson = await graphqlRequest(query.query)
+	console.log(resJson)
+	// return resJson.data.posts
 }

@@ -11,7 +11,7 @@ interface BlogPostPageProps {
 
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
 	const { postSlug } = params
-	const singlePost: any = await getPostBySlug(postSlug)
+	const singlePost: any = await getPostBySlug(postSlug as string)
 	
 	return (
 		<Box>

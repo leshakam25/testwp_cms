@@ -72,9 +72,7 @@ export const getPostBySlug = async (postSlug: string) => {
       slug
     }
   }
-}
-
-		`
+}		`
 	}
 	
 	const resJson = await graphqlRequest(query.query)

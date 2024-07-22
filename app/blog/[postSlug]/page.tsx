@@ -1,6 +1,5 @@
-import type { IPosts } from '@/blog/blog.interface'
-import { getAllPosts, getPostBySlug } from '@/blog/blog.service'
-import PageTitle from '@/shared/components/PageTitle.component'
+import { getPostBySlug } from '@/blog/blog.services'
+import SinglePost from '@/blog/components/SinglePost.component'
 import { Box } from '@chakra-ui/react'
 
 interface BlogPostPageProps {
@@ -11,14 +10,15 @@ interface BlogPostPageProps {
 
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
 	const { postSlug } = params
-	const singlePost: any = await getPostBySlug(postSlug as string)
+	const singlePost: any | undefined = await getPostBySlug(postSlug)
 	
 	return (
 		<Box>
-				{!!postSlug && postSlug}
 			{!!singlePost &&
-				JSON.stringify(singlePost)}
-			<PageTitle title={''} subtitle={''} />
+				<SinglePost
+					singlePost={singlePost}
+				/>
+			}
 		</Box>
 	)
 }

@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface FeaturedImageProps {
-	postImage?: IFeaturedImage,
+	postImage: IFeaturedImage | undefined,
 	postSlug: string
 }
 

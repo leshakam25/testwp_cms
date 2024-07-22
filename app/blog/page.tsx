@@ -1,5 +1,5 @@
 import type { IPosts } from '@/blog/blog.interface'
-import { getAllPosts } from '@/blog/blog.service'
+import { getAllPosts } from '@/blog/blog.services'
 import BlogList from '@/blog/components/BlogList.component'
 import PageTitle from '@/shared/components/PageTitle.component'
 

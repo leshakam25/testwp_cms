@@ -1,21 +1,10 @@
 export interface IPosts {
 	nodes: IPost[];
-	pageInfo: {
-		endCursor: string;
-		hasNextPage: boolean;
-		hasPreviousPage: boolean;
-		startCursor: string;
-	};
+	pageInfo: IPageInfo;
 	totalCount: number;
 	totalPages: number;
 }
 
-interface IPageInfo {
-	endCursor: string;
-	hasNextPage: boolean;
-	hasPreviousPage: boolean;
-	startCursor: string;
-}
 
 export interface IPost {
 	id: string;
@@ -27,6 +16,16 @@ export interface IPost {
 	categories?: ICategories[]
 }
 
+export interface ISinglePost extends Omit<IPost, 'date'> {
+	modified: string;
+}
+
+interface IPageInfo {
+	endCursor: string;
+	hasNextPage: boolean;
+	hasPreviousPage: boolean;
+	startCursor: string;
+}
 
 export interface IFeaturedImage {
 	node: {
@@ -47,5 +46,5 @@ export interface ICategories {
 	nodes: {
 		name: string;
 		slug: string;
-	}
+	}[]
 }

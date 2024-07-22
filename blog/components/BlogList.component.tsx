@@ -1,6 +1,6 @@
 import type { IPost, IPosts } from '@/blog/blog.interface'
 import BlogListItem from '@/blog/components/BlogListItem.component'
-import { Box, Container } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 import React from 'react'
 
 interface BlogListProps {

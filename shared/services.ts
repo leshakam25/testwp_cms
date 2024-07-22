@@ -1,12 +1,18 @@
-export const graphqlRequest = async (query: string) =>  {
-	const url = process.env.GRAPHQL_API_URL
-	const headers = { 'Content-Type': 'application/json' }
-	
-	const res = await fetch(url as string, {
-		headers,
+export const graphqlRequest = async (query: string, variables?: Record<string, any>) => {
+	const response = await fetch(`${process.env.GRAPHQL_API_URL}`, {
 		method: 'POST',
-		body: JSON.stringify({ query })
-	})
-
-	return await res.json()
-}
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			query: query,
+			variables: variables,
+		}),
+	});
+	
+	if (!response.ok) {
+		throw new Error('Нет ответа от сервера');
+	}
+	
+	return response.json();
+};

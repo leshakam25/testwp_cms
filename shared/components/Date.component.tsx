@@ -15,7 +15,7 @@ const DateComponent = ({ dateString }: DateComponentProps) => {
 		>
 			{format(
 				date,
-				'h:m d LLLL yyyy ',
+				'h:m, d LLLL yyyy ',
 				{ locale: ru })
 			}
 		</time>

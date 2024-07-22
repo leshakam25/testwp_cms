@@ -1,3 +1,4 @@
+import type { ISinglePost } from '@/blog/blog.interface'
 import { getPostBySlug } from '@/blog/blog.services'
 import SinglePost from '@/blog/components/SinglePost.component'
 import { Box } from '@chakra-ui/react'
@@ -10,7 +11,7 @@ interface BlogPostPageProps {
 
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
 	const { postSlug } = params
-	const singlePost: any | undefined = await getPostBySlug(postSlug)
+	const singlePost: ISinglePost | undefined = await getPostBySlug(postSlug)
 	
 	return (
 		<Box>

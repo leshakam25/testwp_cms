@@ -1,7 +1,7 @@
 import type { ISinglePost } from '@/blog/blog.interface'
 import FeaturedImage from '@/blog/components/FeaturedImage.component'
 import DateComponent from '@/shared/components/Date.component'
-import { Text } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
 interface SinglePostProps {
@@ -11,23 +11,30 @@ interface SinglePostProps {
 const SinglePost = ({ singlePost }: SinglePostProps) => {
 	if (singlePost) return (
 		<>
-			<FeaturedImage
-				postImage={singlePost.featuredImage}
-				postSlug={singlePost.slug}
-			/>
-			<Text>
+			{/* <FeaturedImage */}
+			{/* 	postImage={singlePost.featuredImage} */}
+			{/* 	postSlug={singlePost.slug} */}
+			{/* /> */}
+			<Text
+				fontWeight={'500'}
+				fontSize={'24px'}
+			>
 				{singlePost.title}
 			</Text>
 			<Text
-				dangerouslySetInnerHTML={{ __html: singlePost.excerpt }}
-			/>
-			
-			<Text>
+				display={'flex'}
+				flexFlow={'nowrap row'}
+				pb={4}
+			>
 				Последние изменение: &nbsp;
 				<DateComponent
 					dateString={singlePost.modified}
 				/>
 			</Text>
+			<Box
+				className={'singlePostContent'}
+				dangerouslySetInnerHTML={{ __html: singlePost.content }}
+			/>
 		</>
 	)
 }

@@ -54,7 +54,6 @@ export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | und
       post(id: $postSlug, idType: SLUG) {
         id
         content(format: RENDERED)
-        excerpt(format: RENDERED)
         modified
         slug
         title(format: RENDERED)
@@ -84,7 +83,6 @@ export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | und
 	
 	try {
 		const resJson = await graphqlRequest(query.query, query.variables)
-		console.log(resJson.data)
 		return resJson.data.post
 	} catch (error) {
 		console.error('Ошибка в получении поста:', error)

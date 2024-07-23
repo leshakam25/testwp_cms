@@ -16,8 +16,9 @@ export interface IPost {
 	categories?: ICategories[]
 }
 
-export interface ISinglePost extends Omit<IPost, 'date'> {
+export interface ISinglePost extends Omit<IPost, 'date' & 'excerpt'> {
 	modified: string;
+	content: string;
 }
 
 interface IPageInfo {

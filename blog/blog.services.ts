@@ -42,6 +42,7 @@ export const getAllPosts = async (): Promise<IPosts | undefined> => {
 	
 	try {
 		const resJson = await graphqlRequest(query.query)
+		console.log(resJson.data.posts)
 		return resJson.data.posts
 	} catch (error) {
 		console.error('Ошибка в получении постов:', error)
@@ -83,6 +84,7 @@ export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | und
 	
 	try {
 		const resJson = await graphqlRequest(query.query, query.variables)
+		console.log(resJson)
 		return resJson.data.post
 	} catch (error) {
 		console.error('Ошибка в получении поста:', error)

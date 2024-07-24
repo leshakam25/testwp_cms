@@ -1,3 +1,4 @@
+'use client'
 import type { ISinglePost } from '@/blog/blog.interface'
 import SinglePostTitle from '@/blog/components/SinglePostTitle.component'
 import { Box } from '@chakra-ui/react'
@@ -9,14 +10,27 @@ interface SinglePostProps {
 }
 
 const SinglePost = ({ singlePost }: SinglePostProps) => {
-	// console.log(singlePost.featuredImage?.node.mediaDetails)
-	if (singlePost) return (
+	
+	//Функция которая проверят есть ли в массиве картинки высокого разрешения
+	const getImgUrl = (post: ISinglePost) => {
+		const sizes = post.featuredImage?.node.mediaDetails.sizes;
+		if (sizes && sizes.length > 4) {
+			return sizes[5].sourceUrl;
+		}
+		return sizes ? sizes[1].sourceUrl : '';
+	}
+	
+	if (!singlePost) return null
+	
+	return (
 		<>
-			<SinglePostTitle
-				imgUrl={singlePost.featuredImage?.node.mediaDetails.sizes[1].sourceUrl}
-				title={singlePost.title}
-				modified={singlePost.modified}
-			/>
+			{!!singlePost &&
+				<SinglePostTitle
+					imgUrl={getImgUrl(singlePost)}
+					title={singlePost.title}
+					modified={singlePost.modified}
+				/>
+			}
 			<Box
 				py={20}
 				className={'singlePostContent'}

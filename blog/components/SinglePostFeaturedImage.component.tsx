@@ -3,14 +3,12 @@ import type {
 	IFeaturedImageSizes
 } from '@/blog/blog.interface'
 import Image from 'next/image'
-import Link from 'next/link'
 
 interface FeaturedImageProps {
 	postImage: IFeaturedImage | undefined,
-	postSlug: string
 }
 
-const FeaturedImage = ({ postImage, postSlug }: FeaturedImageProps) => {
+const BlockListItemFeaturedImage = ({ postImage }: FeaturedImageProps) => {
 	let img: IFeaturedImageSizes
 	
 	const defaultFeaturedImage: string = 'https://www.shutterstock.com/shutterstock/photos/2155242945/display_1500/stock-vector-image-coming-soon-no-photo-no-thumbnail-image-available-missing-picture-icon-vector-illustration-2155242945.jpg'
@@ -35,9 +33,6 @@ const FeaturedImage = ({ postImage, postSlug }: FeaturedImageProps) => {
 	}
 	
 	return (
-		<Link
-			href={`/blog/${postSlug}`}
-		>
 			<Image
 				src={img.sourceUrl}
 				width={img.width}
@@ -48,8 +43,7 @@ const FeaturedImage = ({ postImage, postSlug }: FeaturedImageProps) => {
 					width: 300
 				}}
 			/>
-		</Link>
 	)
 }
 
-export default FeaturedImage
+export default BlockListItemFeaturedImage

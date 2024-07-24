@@ -1,37 +1,24 @@
 import type { ISinglePost } from '@/blog/blog.interface'
-import FeaturedImage from '@/blog/components/FeaturedImage.component'
-import DateComponent from '@/shared/components/Date.component'
-import { Box, Text } from '@chakra-ui/react'
+import SinglePostTitle from '@/blog/components/SinglePostTitle.component'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
+import '@/blog/singlePost.style.css'
 
 interface SinglePostProps {
 	singlePost: ISinglePost | undefined,
 }
 
 const SinglePost = ({ singlePost }: SinglePostProps) => {
+	// console.log(singlePost.featuredImage?.node.mediaDetails)
 	if (singlePost) return (
 		<>
-			{/* <FeaturedImage */}
-			{/* 	postImage={singlePost.featuredImage} */}
-			{/* 	postSlug={singlePost.slug} */}
-			{/* /> */}
-			<Text
-				fontWeight={'500'}
-				fontSize={'24px'}
-			>
-				{singlePost.title}
-			</Text>
-			<Text
-				display={'flex'}
-				flexFlow={'nowrap row'}
-				pb={4}
-			>
-				Последние изменение: &nbsp;
-				<DateComponent
-					dateString={singlePost.modified}
-				/>
-			</Text>
+			<SinglePostTitle
+				imgUrl={singlePost.featuredImage?.node.mediaDetails.sizes[1].sourceUrl}
+				title={singlePost.title}
+				modified={singlePost.modified}
+			/>
 			<Box
+				py={20}
 				className={'singlePostContent'}
 				dangerouslySetInnerHTML={{ __html: singlePost.content }}
 			/>

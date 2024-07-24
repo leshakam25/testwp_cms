@@ -27,10 +27,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 				}
 				gridTemplateRows={'1fr 30px'}
 				gridTemplateColumns={'1fr'}
-				bgColor='orange.100'
 				display={'flex'}
 				flexDirection={'column'}
-				h={'100vh'}
 			>
 				
 				{/* Компонент заголовка */}

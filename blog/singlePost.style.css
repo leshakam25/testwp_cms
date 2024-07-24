@@ -1,0 +1,54 @@
+@layer utilities {
+	.singlePostContent p {
+		padding-bottom: 16px;
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+	
+	.singlePostContent a {
+		text-decoration: underline !important;
+		color: #0d99d5 !important;
+	}
+	
+	.singlePostContent ul {
+		padding-bottom: 16px !important;
+		list-style-type: disc;
+		list-style-position: inside;
+		color: #616d29;
+	}
+	
+	.singlePostContent img {
+		margin: 0 auto !important;
+	}
+	
+	.singlePostContent figure {
+		padding-bottom: 16px !important;
+	}
+	
+	.singlePostContent figure figcaption{
+		text-align: center !important;
+		padding: 8px 0 !important;
+		color: #6E6E6E;
+	}
+	
+	.singlePostContent h1 {
+		font-size: 1.875rem !important; /* 30px */
+		line-height: 2.25rem !important; /* 36px */
+		font-weight: bold !important;
+		padding: 16px 0 !important;
+	}
+	
+	.singlePostContent h2 {
+		font-size: 1.5rem !important; /* 24px */
+		line-height: 2rem !important; /* 32px */
+		font-weight: bold !important;
+		padding: 16px 0 !important;
+	}
+	
+	.singlePostContent h3 {
+		font-size: 1.25rem !important;
+		line-height: 1.75rem !important;
+		font-weight: bold !important;
+		padding: 16px 0 !important;
+	}
+}

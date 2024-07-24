@@ -13,7 +13,7 @@ const PageTitle = ({ title, subtitle }: PageTitleProps) => {
 			flexFlow={'column nowrap'}
 			justifyContent={'center'}
 			alignItems={'center'}
-			minH={'220px'}
+			h={'220px'}
 			mb={4}
 			rounded={'md'}
 		>

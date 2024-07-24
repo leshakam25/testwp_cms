@@ -25,11 +25,15 @@ const SinglePostTitle = ({ imgUrl, title, modified }: SinglePostTitleProps) => {
 				flexFlow={'column nowrap'}
 				justifyContent={'center'}
 				alignItems={'center'}
+				bgColor={'white'}
+			  opacity={0.5}
+				px={8}
+				py={2}
+				rounded={'3xl'}
 			>
 				<Text
 					fontWeight={'500'}
 					fontSize={'4.25rem'}
-					textShadow={'0 0 25px rgba(255,255,255,.5), 0 0 15px rgba(255,255,255,.5)'}
 				>
 					{title}
 				</Text>

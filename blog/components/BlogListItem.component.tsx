@@ -1,6 +1,8 @@
+'use client'
 import type { IPost } from '@/blog/blog.interface'
 import BlockListItemFeaturedImage from '@/blog/components/BlockListItemFeaturedImage.component'
 import DateComponent from '@/shared/components/Date.component'
+import htmlCleaner from '@/shared/htmlCleaner'
 import {
 	Box,
 	Card,
@@ -15,8 +17,8 @@ interface BlogListItemProps {
 	post: IPost
 }
 
-
 const BlogListItem = ({ post }: BlogListItemProps) => {
+	
 	return (
 		<Link href={`/blog/${post.slug}`}>
 			<Card
@@ -35,7 +37,7 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 							{post.title}
 						</Heading>
 						<Box
-							dangerouslySetInnerHTML={{ __html: post.excerpt }}
+							dangerouslySetInnerHTML={{ __html: htmlCleaner(post.excerpt) }}
 						>
 						</Box>
 					</CardBody>

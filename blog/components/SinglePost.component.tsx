@@ -1,6 +1,7 @@
 'use client'
 import type { ISinglePost } from '@/blog/blog.interface'
 import SinglePostTitle from '@/blog/components/SinglePostTitle.component'
+import htmlCleaner from '@/shared/htmlCleaner'
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import '@/blog/singlePost.style.css'
@@ -13,6 +14,7 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 	
 	//Функция которая проверят есть ли в массиве картинки высокого разрешения
 	const getImgUrl = (post: ISinglePost) => {
+		
 		const sizes = post.featuredImage?.node.mediaDetails.sizes;
 		if (sizes && sizes.length > 4) {
 			return sizes[5].sourceUrl;
@@ -34,7 +36,7 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 			<Box
 				py={20}
 				className={'singlePostContent'}
-				dangerouslySetInnerHTML={{ __html: singlePost.content }}
+				dangerouslySetInnerHTML={{ __html: htmlCleaner(singlePost.content) }}
 			/>
 		</>
 	)

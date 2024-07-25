@@ -1,6 +1,6 @@
 import type { IPosts, ISinglePost } from '@/blog/blog.interface'
 import { GET_ALL_POSTS, GET_SINGLE_POST_QUERY } from '@/blog/blog.queries'
-import { graphqlRequest } from '@/shared/graphqlRequest.services'
+import { graphqlRequest } from '@/shared/graphqlRequest'
 
 interface SinglePostResponse {
 	data: {

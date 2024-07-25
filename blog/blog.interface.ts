@@ -49,3 +49,16 @@ export interface ICategories {
 		slug: string;
 	}[]
 }
+
+
+export interface ISinglePostResponse {
+	data: {
+		post: ISinglePost;
+	};
+}
+
+export interface IPostsResponse {
+	data: {
+		posts: IPosts
+	}
+}

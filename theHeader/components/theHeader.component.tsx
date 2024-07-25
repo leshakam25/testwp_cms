@@ -1,6 +1,6 @@
 import LogoTheHeaderComponent from '@/theHeader/components/logoTheHeader.component'
 import NavTheHeaderComponent from '@/theHeader/components/navTheHeader.component'
-import { Box, Container, Text } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 const TheHeaderComponent = () => {
 	return (

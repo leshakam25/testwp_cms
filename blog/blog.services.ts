@@ -1,26 +1,20 @@
-import type { IPosts, ISinglePost } from '@/blog/blog.interface'
-import { GET_ALL_POSTS, GET_SINGLE_POST_QUERY } from '@/blog/blog.queries'
+import type {
+	IPostsResponse,
+	ISinglePost,
+	ISinglePostResponse
+} from '@/blog/blog.interface'
+import {
+	GET_ALL_POSTS,
+	GET_SINGLE_POST_QUERY
+} from '@/blog/blog.queries'
 import { graphqlRequest } from '@/shared/graphqlRequest'
-
-interface SinglePostResponse {
-	data: {
-		post: ISinglePost;
-	};
-}
-
-interface PostsResponse {
-	data: {
-		posts: IPosts
-	}
-}
-
 
 // Функция для получения одного поста по фрагменту (slug)
 export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | undefined> => {
 	const variables = { postSlug }
 	
 	try {
-		const resJson: SinglePostResponse = await graphqlRequest(GET_SINGLE_POST_QUERY, variables)
+		const resJson: ISinglePostResponse = await graphqlRequest(GET_SINGLE_POST_QUERY, variables)
 		console.log(resJson)
 		return resJson.data.post
 	} catch (error) {
@@ -30,10 +24,9 @@ export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | und
 }
 
 // Функция для получения всех постов
-export const getAllPosts = async (): Promise<PostsResponse['data']['posts'] | undefined> => {
-	
+export const getAllPosts = async (): Promise<IPostsResponse['data']['posts'] | undefined> => {
 	try {
-		const resJson: PostsResponse = await graphqlRequest(GET_ALL_POSTS)
+		const resJson: IPostsResponse = await graphqlRequest(GET_ALL_POSTS)
 		console.log(resJson)
 		return resJson.data.posts
 	} catch (error) {

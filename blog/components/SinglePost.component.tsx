@@ -1,5 +1,5 @@
-'use client'
-import type { ISinglePost } from '@/blog/blog.interface'
+"use client"
+import type { IFeaturedImage, ISinglePost } from '@/blog/blog.interface'
 import SinglePostTitle from '@/blog/components/SinglePostTitle.component'
 import htmlCleaner from '@/shared/htmlCleaner'
 import { Box } from '@chakra-ui/react'
@@ -13,9 +13,8 @@ interface SinglePostProps {
 const SinglePost = ({ singlePost }: SinglePostProps) => {
 	
 	//Функция которая проверят есть ли в массиве картинки высокого разрешения
-	const getImgUrl = (post: ISinglePost) => {
-		
-		const sizes = post.featuredImage?.node.mediaDetails.sizes;
+	const getHiResImg = (featuredImage: IFeaturedImage | undefined ) => {
+		const sizes = featuredImage?.node.mediaDetails.sizes;
 		if (sizes && sizes.length > 4) {
 			return sizes[5].sourceUrl;
 		}
@@ -28,7 +27,7 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 		<>
 			{!!singlePost &&
 				<SinglePostTitle
-					imgUrl={getImgUrl(singlePost)}
+					imgUrl={getHiResImg(singlePost.featuredImage)}
 					title={singlePost.title}
 					modified={singlePost.modified}
 				/>

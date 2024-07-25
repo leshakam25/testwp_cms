@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import type { IPost } from '@/blog/blog.interface'
 import BlockListItemFeaturedImage from '@/blog/components/BlockListItemFeaturedImage.component'
 import DateComponent from '@/shared/components/Date.component'

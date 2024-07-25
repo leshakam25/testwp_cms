@@ -3,39 +3,60 @@
 		padding-bottom: 16px;
 		font-size: 1.125rem;
 		line-height: 1.75rem;
+		color: #333333;
+		font-weight: 400;
 	}
 	
 	.singlePostContent a {
 		text-decoration: underline !important;
 		color: #0d99d5 !important;
+		font-weight: 600;
+	}
+
+	.singlePostContent a:hover {
+		color: #075a8f !important;
 	}
 	
-	.singlePostContent ul {
+	.singlePostContent ul, .singlePostContent ol {
 		padding-bottom: 16px !important;
+		padding-left: 20px;
+		color: #616d29;
+	}
+
+	.singlePostContent ul {
 		list-style-type: disc;
 		list-style-position: inside;
-		color: #616d29;
+	}
+
+	.singlePostContent ol {
+		list-style-type: decimal;
+		list-style-position: inside;
 	}
 	
 	.singlePostContent img {
 		margin: 0 auto !important;
+		max-width: 100%;
+		height: auto;
 	}
 	
 	.singlePostContent figure {
 		padding-bottom: 16px !important;
 	}
 	
-	.singlePostContent figure figcaption{
+	.singlePostContent figure figcaption {
 		text-align: center !important;
 		padding: 8px 0 !important;
 		color: #6E6E6E;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
 	}
-	
+
 	.singlePostContent h1 {
 		font-size: 1.875rem !important; /* 30px */
 		line-height: 2.25rem !important; /* 36px */
 		font-weight: bold !important;
 		padding: 16px 0 !important;
+		color: #222222;
 	}
 	
 	.singlePostContent h2 {
@@ -43,6 +64,7 @@
 		line-height: 2rem !important; /* 32px */
 		font-weight: bold !important;
 		padding: 16px 0 !important;
+		color: #222222;
 	}
 	
 	.singlePostContent h3 {
@@ -50,5 +72,64 @@
 		line-height: 1.75rem !important;
 		font-weight: bold !important;
 		padding: 16px 0 !important;
+		color: #222222;
+	}
+
+	.singlePostContent h4 {
+		font-size: 1.125rem !important;
+		line-height: 1.5rem !important;
+		font-weight: bold !important;
+		padding: 12px 0 !important;
+		color: #222222;
+	}
+
+	.singlePostContent h5 {
+		font-size: 1rem !important;
+		line-height: 1.5rem !important;
+		font-weight: bold !important;
+		padding: 8px 0 !important;
+		color: #222222;
+	}
+
+	.singlePostContent h6 {
+		font-size: 0.875rem !important;
+		line-height: 1.25rem !important;
+		font-weight: bold !important;
+		padding: 4px 0 !important;
+		color: #222222;
+	}
+
+	.singlePostContent blockquote {
+		padding: 16px;
+		margin: 0 0 16px 0;
+		background: #f9f9f9;
+		border-left: 4px solid #ccc;
+		color: #666666;
+		font-style: italic;
+	}
+
+	.singlePostContent blockquote p {
+		margin: 0;
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+
+	.singlePostContent pre {
+		background: #f4f4f4;
+		padding: 16px;
+		overflow-x: auto;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		border-radius: 4px;
+		color: #333333;
+	}
+
+	.singlePostContent code {
+		background: #f4f4f4;
+		padding: 2px 4px;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		border-radius: 4px;
+		color: #e83e8c;
 	}
 }

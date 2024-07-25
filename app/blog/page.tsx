@@ -5,7 +5,7 @@ import PageTitle from '@/shared/components/PageTitle.component'
 
 const BlogPage = async () => {
 	
-	const allPosts: IPosts = await getAllPosts()
+	const allPosts: IPosts | undefined = await getAllPosts()
 	
 	return (
 		<>

@@ -2,13 +2,12 @@ import type { IPost } from '@/blog/blog.interface'
 import BlockListItemFeaturedImage from '@/blog/components/BlockListItemFeaturedImage.component'
 import DateComponent from '@/shared/components/Date.component'
 import {
+	Box,
 	Card,
 	CardBody,
 	CardFooter, Heading,
 	Stack,
-	Text
 } from '@chakra-ui/react'
-import '@/blog/singlePost.style.css'
 import Link from 'next/link'
 import React from 'react'
 
@@ -35,10 +34,10 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 						<Heading size='md'>
 							{post.title}
 						</Heading>
-						<Text
-							className={'singlePostContent'}
-							dangerouslySetInnerHTML={{ __html: post.excerpt }}>
-						</Text>
+						<Box
+							dangerouslySetInnerHTML={{ __html: post.excerpt }}
+						>
+						</Box>
 					</CardBody>
 					
 					<CardFooter>

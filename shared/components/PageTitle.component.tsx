@@ -8,7 +8,6 @@ interface PageTitleProps {
 const PageTitle = ({ title, subtitle }: PageTitleProps) => {
 	return (
 		<Box
-			bg={'blue.100'}
 			display={'flex'}
 			flexFlow={'column nowrap'}
 			justifyContent={'center'}

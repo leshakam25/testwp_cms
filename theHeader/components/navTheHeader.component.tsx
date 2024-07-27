@@ -40,6 +40,7 @@ const NavTheHeaderComponent = () => {
 					<Link key={i} href={el.href}>
 						<Button
 							colorScheme={'green'}
+							variant={'outline'}
 						>
 							{el.title}
 						</Button>

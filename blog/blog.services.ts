@@ -15,7 +15,7 @@ export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | und
 	
 	try {
 		const resJson: ISinglePostResponse = await graphqlRequest(GET_SINGLE_POST_QUERY, variables)
-		console.log(resJson)
+		console.log(resJson.data.post)
 		return resJson.data.post
 	} catch (error) {
 		console.error('Ошибка в получении поста:', error)

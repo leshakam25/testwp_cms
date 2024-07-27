@@ -12,8 +12,9 @@ const BlogList = ({ allPosts }: BlogListProps) => {
 		<Container
 			maxWidth={'6xl'}
 			display={'flex'}
-			flexDirection={'column'}
-			justifyContent={'center'}
+			flexWrap={'wrap'}
+			flexDirection={'row'}
+			justifyContent={'flex-start'}
 			gap={2}
 		>
 			{!!allPosts &&

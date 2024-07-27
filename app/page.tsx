@@ -16,6 +16,7 @@ const HomePage = () => {
 			<Box mt={1}>
 				<Link href={'/blog'}>
 					<Button
+						variant={'outline'}
 						colorScheme={'blue'}
 					>
 						<Text>

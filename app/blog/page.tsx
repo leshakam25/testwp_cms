@@ -9,7 +9,11 @@ const BlogPage = async () => {
 	
 	return (
 		<>
-			<PageTitle title={'Блог'} subtitle={'Последние посты'} />
+			<PageTitle
+				title={'Блог'}
+				subtitle={'Последние посты'}
+				
+			/>
 			<BlogList allPosts={allPosts} />
 		</>
 	)

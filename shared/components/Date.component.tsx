@@ -12,9 +12,6 @@ const DateComponent = ({ dateString }: DateComponentProps) => {
 	return (
 			<time
 				dateTime={dateString}
-				style={{
-					fontWeight: "600"
-				}}
 			>
 				{format(
 					date,

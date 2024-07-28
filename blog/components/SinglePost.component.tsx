@@ -1,43 +1,61 @@
-"use client"
-import type { IFeaturedImage, ISinglePost } from '@/blog/blog.interface'
-import SinglePostTitle from '@/blog/components/SinglePostTitle.component'
+'use client'
+import type { ISinglePost } from '@/blog/blog.interface'
+import DateComponent from '@/shared/components/Date.component'
+import { getHiResImg } from '@/shared/getHiResImg'
 import htmlCleaner from '@/shared/htmlCleaner'
-import { Box } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Container, Text } from '@chakra-ui/react'
 import '@/blog/singlePost.style.css'
+import React from 'react'
 
 interface SinglePostProps {
 	singlePost: ISinglePost | undefined,
 }
 
 const SinglePost = ({ singlePost }: SinglePostProps) => {
-	
-	//Функция которая проверят есть ли в массиве картинки высокого разрешения
-	const getHiResImg = (featuredImage: IFeaturedImage | undefined ) => {
-		const sizes = featuredImage?.node.mediaDetails.sizes;
-		if (sizes && sizes.length > 4) {
-			return sizes[5].sourceUrl;
-		}
-		return sizes ? sizes[1].sourceUrl : '';
-	}
-	
 	if (!singlePost) return null
 	
 	return (
-		<>
-			{!!singlePost &&
-				<SinglePostTitle
-					imgUrl={getHiResImg(singlePost.featuredImage)}
-					title={singlePost.title}
-					modified={singlePost.modified}
-				/>
-			}
+		<Container>
 			<Box
-				py={20}
+				bgImage={getHiResImg(singlePost.featuredImage)}
+				bgPos={'center'}
+				bgSize={'cover'}
+				height={'120px'}
+				display={'flex'}
+				flexFlow={'column nowrap'}
+				justifyContent={'center'}
+				alignItems={'center'}
+				gap={1}
+			>
+				<Text
+					fontSize={14}
+					textAlign={'center'}
+					bgColor={'lightcyan'}
+					px={1}
+					rounded={'sm'}
+					opacity={0.8}
+				>
+					<DateComponent
+						dateString={singlePost.modified}
+					/>
+				</Text>
+				<Text
+					opacity={0.8}
+					px={2}
+					bgColor={'lightcyan'}
+					fontSize={24}
+					lineHeight={'38px'}
+					rounded={'sm'}
+					textAlign={'center'}
+				>
+					{singlePost.title}
+				</Text>
+			</Box>
+			<Box
 				className={'singlePostContent'}
 				dangerouslySetInnerHTML={{ __html: htmlCleaner(singlePost.content) }}
 			/>
-		</>
+		</Container>
 	)
 }
 

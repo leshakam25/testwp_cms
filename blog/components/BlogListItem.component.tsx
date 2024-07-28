@@ -6,7 +6,7 @@ import {
 	Box,
 	Card,
 	CardBody,
-	CardFooter, Heading, Image,
+	CardFooter, Image,
 	Stack, Text
 } from '@chakra-ui/react'
 import Link from 'next/link'
@@ -21,15 +21,19 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 	
 	return (
 		<Link href={`/blog/${post.slug}`} style={{
-			margin:'30px 15px',
-			width:'340px',
-			height:'506px'
+			margin: '30px 15px',
+			width: '340px',
+			height: '506px'
 		}}
 		>
 			<Card
 				boxShadow={'none'}
 				width='340px'
 				height='506px'
+				_hover={{
+					background: 'lightblue',
+					transition: 'background 0.4s ease-in-out'
+				}}
 			>
 				<Stack
 					direction={'column'}

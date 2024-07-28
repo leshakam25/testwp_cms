@@ -1,12 +1,13 @@
-import { Box, Button } from '@chakra-ui/react'
+import MainButton from '@/shared/ui/MainButton.component'
+import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
 
-interface IListItem {
+interface INavListItem {
 	title: string;
 	href: string;
 }
 
-const navLinks: IListItem[] = [
+const navLinks: INavListItem[] = [
 	{
 		title: 'Home',
 		href: '/'
@@ -33,17 +34,12 @@ const NavTheHeaderComponent = () => {
 			justifyContent={'space-between'}
 			alignItems={'center'}
 			listStyleType={'none'}
-			gap={2}
+			gap={1}
 		>
 			{!!navLinks &&
 				navLinks.map((el, i) => (
 					<Link key={i} href={el.href}>
-						<Button
-							colorScheme={'green'}
-							variant={'outline'}
-						>
-							{el.title}
-						</Button>
+						<MainButton title={el.title} />
 					</Link>
 				))
 			}

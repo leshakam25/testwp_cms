@@ -17,7 +17,15 @@ const HomePage = () => {
 				<Link href={'/blog'}>
 					<Button
 						variant={'outline'}
-						colorScheme={'blue'}
+						rounded={'none'}
+						border='none'
+						outline={'1px solid black'}
+						_hover={{
+							bg: 'gray.200',
+							color: 'red.300',
+							outline: 'none',
+							transition: '0.4s ease-in-out',
+						}}
 					>
 						<Text>
 							Go to blog

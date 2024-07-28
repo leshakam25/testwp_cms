@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Метаданные приложения
 export const metadata: Metadata = {
-	applicationName: 'WPTest | Blog | applicationName',
+	applicationName: 'WPTest',
 	title: 'WPTest | Blog',
 	description: 'WPTest | Blog | description'
 }

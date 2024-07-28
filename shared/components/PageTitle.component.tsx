@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react'
 
 interface PageTitleProps {
 	title: string,
-	subtitle: string
+	subtitle?: string
 }
 
 const PageTitle = ({ title, subtitle }: PageTitleProps) => {
@@ -19,17 +19,20 @@ const PageTitle = ({ title, subtitle }: PageTitleProps) => {
 			<Text
 				fontSize={42}
 				color={'gray.500'}
-				fontWeight={600}
+				fontWeight={300}
 			>
 				{title}
 			</Text>
-			<Text
-				fontSize={22}
-				color={'gray.500'}
-				fontWeight={200}
-			>
-				{subtitle}
-			</Text>
+			{
+				!!subtitle &&
+				<Text
+					fontSize={22}
+					color={'gray.500'}
+					fontWeight={200}
+				>
+					{subtitle}
+				</Text>
+			}
 		</Box>
 	)
 }

@@ -1,12 +1,11 @@
 import LogoTheHeaderComponent from '@/theHeader/components/logoTheHeader.component'
 import NavTheHeaderComponent from '@/theHeader/components/navTheHeader.component'
-import { Container } from '@chakra-ui/react'
+import { Box, Container, Input } from '@chakra-ui/react'
 
 const TheHeaderComponent = () => {
 	return (
 		<Container
 			maxW={'full'}
-			zIndex={10}
 			position={'relative'}
 			display={'flex'}
 			justifyContent={'space-between'}
@@ -14,7 +13,18 @@ const TheHeaderComponent = () => {
 			py={2}
 		>
 			<LogoTheHeaderComponent />
-			<NavTheHeaderComponent />
+			<Box
+				display={'flex'}
+				justifyContent={'space-between'}
+				alignItems={'center'}
+				gap={2}
+			>
+				<Input
+					variant='flushed'
+					placeholder='Поиск'
+				/>
+				<NavTheHeaderComponent />
+			</Box>
 		</Container>
 	)
 }

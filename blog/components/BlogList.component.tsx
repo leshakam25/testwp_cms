@@ -15,15 +15,15 @@ const BlogList = ({ allPosts }: BlogListProps) => {
 			flexWrap={'wrap'}
 			flexDirection={'row'}
 			justifyContent={'flex-start'}
-			gap={2}
+			alignItems={'center'}
 		>
 			{!!allPosts &&
 				allPosts.nodes &&
-				allPosts.nodes.map((el: IPost) => {
+				allPosts.nodes.map((el: IPost, i: number) => {
 					return (
 						<BlogListItem
 							post={el}
-							key={el.slug}
+							key={i}
 						/>
 					)
 				})

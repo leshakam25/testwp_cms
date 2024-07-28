@@ -1,4 +1,5 @@
 import PageTitle from '@/shared/components/PageTitle.component'
+import MainButton from '@/shared/ui/MainButton.component'
 import { Box, Button, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
@@ -6,31 +7,18 @@ const HomePage = () => {
 	return (
 		<Box>
 			<PageTitle
-				title={"Домашняя страница"}
-				subtitle={"Дашборд"}
+				title={'Домашняя страница'}
 			/>
-			
-			<Text as={'h1'}>
-				Welcome to TestWP blog
+			<Text
+				fontSize={32}
+				fontWeight={200}
+				color={'gray.700'}
+			>
+				Добро пожаловать
 			</Text>
 			<Box mt={1}>
 				<Link href={'/blog'}>
-					<Button
-						variant={'outline'}
-						rounded={'none'}
-						border='none'
-						outline={'1px solid black'}
-						_hover={{
-							bg: 'gray.200',
-							color: 'red.300',
-							outline: 'none',
-							transition: '0.4s ease-in-out',
-						}}
-					>
-						<Text>
-							Go to blog
-						</Text>
-					</Button>
+					<MainButton title={'Перейти в блог'} />
 				</Link>
 			</Box>
 		</Box>

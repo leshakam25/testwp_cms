@@ -1,6 +1,7 @@
 'use client'
 import type { IPost } from '@/blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
+import { defaultFeaturedImage } from '@/shared/defaultImage'
 import htmlCleaner from '@/shared/htmlCleaner'
 import {
 	Box,
@@ -17,7 +18,6 @@ interface BlogListItemProps {
 }
 
 const BlogListItem = ({ post }: BlogListItemProps) => {
-	const defaultFeaturedImage: string = 'https://www.shutterstock.com/shutterstock/photos/2155242945/display_1500/stock-vector-image-coming-soon-no-photo-no-thumbnail-image-available-missing-picture-icon-vector-illustration-2155242945.jpg'
 	
 	return (
 		<Link href={`/blog/${post.slug}`} style={{
@@ -30,6 +30,7 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 				boxShadow={'none'}
 				width='340px'
 				height='506px'
+				rounded={'none'}
 				_hover={{
 					background: 'lightblue',
 					transition: 'background 0.4s ease-in-out'
@@ -40,7 +41,7 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 					overflow='hidden'
 				>
 					<Image
-						src={post.featuredImage?.node.mediaDetails.sizes[0].sourceUrl || defaultFeaturedImage}
+						src={post.featuredImage?.node.mediaDetails.sizes[1].sourceUrl || defaultFeaturedImage}
 						width={'100%'}
 						height={'212px'}
 						fit={'cover'}
@@ -53,9 +54,6 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 							lineHeight={'24px'}
 						>
 							<DateComponent dateString={post.date} />
-							{/* <Button variant='solid' colorScheme='blue'> */}
-							{/*   Buy Latte */}
-							{/* </Button> */}
 						</Text>
 						<Text
 							fontSize={'24px'}

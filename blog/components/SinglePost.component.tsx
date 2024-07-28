@@ -1,9 +1,10 @@
 'use client'
 import type { ISinglePost } from '@/blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
+import { defaultFeaturedImage } from '@/shared/defaultImage'
 import { getHiResImg } from '@/shared/getHiResImg'
 import htmlCleaner from '@/shared/htmlCleaner'
-import { Box, Container, Text } from '@chakra-ui/react'
+import { Box, Container, Image, Text } from '@chakra-ui/react'
 import '@/blog/singlePost.style.css'
 import React from 'react'
 
@@ -16,21 +17,23 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 	
 	return (
 		<Container>
+			<Image
+				src={singlePost.featuredImage?.node.mediaDetails.sizes[1].sourceUrl || defaultFeaturedImage}
+				width={'full'}
+				height={'200px'}
+				objectFit={'cover'}
+				opacity={0.8}
+			/>
 			<Box
-				bgImage={getHiResImg(singlePost.featuredImage)}
-				bgPos={'center'}
-				bgSize={'cover'}
-				height={'120px'}
+				height={120}
 				display={'flex'}
-				flexFlow={'column nowrap'}
+				flexDirection={'column'}
 				justifyContent={'center'}
 				alignItems={'center'}
-				gap={1}
 			>
 				<Text
 					fontSize={14}
 					textAlign={'center'}
-					bgColor={'lightcyan'}
 					px={1}
 					rounded={'sm'}
 					opacity={0.8}
@@ -42,7 +45,6 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 				<Text
 					opacity={0.8}
 					px={2}
-					bgColor={'lightcyan'}
 					fontSize={24}
 					lineHeight={'38px'}
 					rounded={'sm'}
@@ -51,6 +53,7 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 					{singlePost.title}
 				</Text>
 			</Box>
+			
 			<Box
 				className={'singlePostContent'}
 				dangerouslySetInnerHTML={{ __html: htmlCleaner(singlePost.content) }}

@@ -9,19 +9,19 @@ interface INavListItem {
 
 const navLinks: INavListItem[] = [
 	{
-		title: 'Home',
+		title: 'Главная',
 		href: '/'
 	},
 	{
-		title: 'About',
+		title: 'О себе',
 		href: '/about'
 	},
 	{
-		title: 'Blog',
+		title: 'Блог',
 		href: '/blog'
 	},
 	{
-		title: 'Contact',
+		title: 'Контакты',
 		href: '/contact'
 	}
 ]
@@ -34,10 +34,10 @@ const NavTheHeaderComponent = () => {
 			justifyContent={'space-between'}
 			alignItems={'center'}
 			listStyleType={'none'}
-			gap={1}
+			gap={2}
 		>
 			{!!navLinks &&
-				navLinks.map((el, i) => (
+				navLinks.map((el: INavListItem, i: number) => (
 					<Link key={i} href={el.href}>
 						<MainButton title={el.title} />
 					</Link>

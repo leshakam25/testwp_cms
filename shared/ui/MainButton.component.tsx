@@ -10,8 +10,11 @@ const MainButton = ({ title }: MainButtonProps) => {
 			variant={'outline'}
 			rounded={'none'}
 			border='none'
-			outline={'1px solid black'}
+			color={'gray.600'}
+			outline={`1px solid`}
+			outlineColor={'gray.400'}
 			textTransform={'uppercase'}
+			fontWeight={300}
 			_hover={{
 				bg: 'gray.200',
 				color: 'red.300',

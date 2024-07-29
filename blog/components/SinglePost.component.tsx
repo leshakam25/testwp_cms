@@ -16,13 +16,16 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 	if (!singlePost) return null
 	
 	return (
-		<Container>
+		<Container
+			maxW={'6xl'}
+			mt={8}
+		>
 			<Image
-				src={singlePost.featuredImage?.node.mediaDetails.sizes[1].sourceUrl || defaultFeaturedImage}
+				src={singlePost.featuredImage?.node.mediaDetails.sizes[5].sourceUrl || defaultFeaturedImage}
 				width={'full'}
-				height={'200px'}
+				height={'400px'}
 				objectFit={'cover'}
-				opacity={0.8}
+				opacity={0.9}
 			/>
 			<Box
 				height={120}

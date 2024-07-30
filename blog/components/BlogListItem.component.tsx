@@ -1,8 +1,8 @@
 'use client'
 import type { IPost } from '@/blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
-import { defaultFeaturedImage } from '@/shared/defaultImage'
-import htmlCleaner from '@/shared/htmlCleaner'
+import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
+import htmlCleaner from '@/shared/lib/htmlCleaner'
 import {
 	Box,
 	Card,

@@ -7,7 +7,7 @@ import {
 	GET_ALL_POSTS,
 	GET_SINGLE_POST_QUERY
 } from '@/blog/blog.queries'
-import { graphqlRequest } from '@/shared/graphqlRequest'
+import { graphqlRequest } from '@/shared/lib/graphqlRequest'
 
 // Функция для получения одного поста по фрагменту (slug)
 export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | undefined> => {

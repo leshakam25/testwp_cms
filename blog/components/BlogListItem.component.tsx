@@ -49,9 +49,8 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 					/>
 					<CardBody>
 						<Text
-							fontSize={'12px'}
-							fontWeight={'regular'}
-							lineHeight={'24px'}
+							fontSize={13}
+							opacity={0.8}
 						>
 							<DateComponent dateString={post.date} />
 						</Text>

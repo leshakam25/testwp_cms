@@ -1,1 +1,1 @@
-export const defaultFeaturedImage: string = 'https://www.shutterstock.com/shutterstock/photos/2155242945/display_1500/stock-vector-image-coming-soon-no-photo-no-thumbnail-image-available-missing-picture-icon-vector-illustration-2155242945.jpg'
+export const defaultFeaturedImage: string = 'http://192.168.10.113:8080/wp-content/uploads/2024/08/vs_x0_a0cz8.jpg'

@@ -1,16 +1,36 @@
 // Функция для получения одного поста по фрагменту (slug)
-import { GET_INFOPAGE_QUERY } from '@/Info/info.queries'
+import type { IPageSlugs } from '@/Info/info.interface'
+import { GET_INFOPAGE_QUERY, GET_PAGE_SLUGS } from '@/Info/info.queries'
 import { graphqlRequest } from '@/shared/lib/graphqlRequest'
 
-export const getInfoPageById = async (id: any): Promise<any> => {
-	const variables = { id }
-	
+export interface IPageSlugsResponse {
+	data: {
+		pages: {
+			nodes: {
+				slug: string
+			}[]
+		}
+	}
+}
+
+export const getPageSlugs = async (): Promise<IPageSlugs[] | undefined> => {
 	try {
-		const resJson: any = await graphqlRequest(GET_INFOPAGE_QUERY, variables)
+		const resJson: IPageSlugsResponse = await graphqlRequest(GET_PAGE_SLUGS)
 		console.log(resJson)
-		return resJson
+		return resJson.data.pages.nodes
 	} catch (error) {
-		console.error('Ошибка в получении страницы:', error)
+		console.error('Ошибка в получении списка страниц:', error)
 		return undefined
+	}
+}
+
+export const getStaticPaths = async () => {
+	const pageSlugs: IPageSlugs[] | undefined = await getPageSlugs()
+	
+	return {
+		paths: !!pageSlugs && pageSlugs.map((slug) => (
+			{ params: { slug } }
+		)),
+		fallback: false
 	}
 }

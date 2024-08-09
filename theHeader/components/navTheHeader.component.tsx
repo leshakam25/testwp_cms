@@ -14,7 +14,7 @@ const navLinks: INavListItem[] = [
 	},
 	{
 		title: 'О себе',
-		href: '/about'
+		href: '/info'
 	},
 	{
 		title: 'Блог',

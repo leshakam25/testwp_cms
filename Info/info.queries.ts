@@ -14,3 +14,13 @@ export const GET_INFOPAGE_QUERY: string = `
   }
   }
 `;
+
+export const GET_PAGE_SLUGS: string = `
+	query getPageSlugs {
+    pages {
+      nodes {
+        slug
+      }
+    }
+  }
+`;

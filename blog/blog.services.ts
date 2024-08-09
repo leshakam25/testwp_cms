@@ -1,13 +1,18 @@
-import type {
-	IPostsResponse,
-	ISinglePost,
-	ISinglePostResponse
-} from '@/blog/blog.interface'
-import {
-	GET_ALL_POSTS,
-	GET_SINGLE_POST_QUERY
-} from '@/blog/blog.queries'
+import type { IPosts, ISinglePost } from '@/Blog/blog.interface'
+import { GET_ALL_POSTS, GET_SINGLE_POST_QUERY } from '@/Blog/blog.queries'
 import { graphqlRequest } from '@/shared/lib/graphqlRequest'
+
+export interface ISinglePostResponse {
+	data: {
+		post: ISinglePost;
+	};
+}
+
+export interface IPostsResponse {
+	data: {
+		posts: IPosts
+	}
+}
 
 // Функция для получения одного поста по фрагменту (slug)
 export const getPostBySlug = async (postSlug: string): Promise<ISinglePost | undefined> => {

@@ -1,17 +1,9 @@
 // Функция для получения одного поста по фрагменту (slug)
-import type { IPageSlugs } from '@/Info/info.interface'
+import type { IPageSlugs, IPageSlugsResponse } from '@/Info/info.interface'
 import { GET_INFOPAGE_QUERY, GET_PAGE_SLUGS } from '@/Info/info.queries'
 import { graphqlRequest } from '@/shared/lib/graphqlRequest'
 
-export interface IPageSlugsResponse {
-	data: {
-		pages: {
-			nodes: {
-				slug: string
-			}[]
-		}
-	}
-}
+
 
 export const getPageSlugs = async (): Promise<IPageSlugs[] | undefined> => {
 	try {

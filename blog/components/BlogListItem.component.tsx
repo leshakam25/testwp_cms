@@ -1,5 +1,5 @@
 'use client'
-import type { IPost } from '@/blog/blog.interface'
+import type { IPost } from '@/Blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
 import htmlCleaner from '@/shared/lib/htmlCleaner'
@@ -41,7 +41,7 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 					overflow='hidden'
 				>
 					<Image
-						src={post.featuredImage?.node.mediaDetails.sizes[1].sourceUrl || defaultFeaturedImage}
+						src={post.featuredImage?.node.mediaDetails.sizes[0].sourceUrl || defaultFeaturedImage}
 						width={'100%'}
 						height={'212px'}
 						fit={'cover'}

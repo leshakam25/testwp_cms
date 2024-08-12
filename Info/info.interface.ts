@@ -5,9 +5,7 @@ export interface IPageSlugs {
 export interface IPageSlugsResponse {
 	data: {
 		pages: {
-			nodes: {
-				slug: string
-			}[]
+			nodes: IPageSlugs[]
 		}
 	}
 }

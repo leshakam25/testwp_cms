@@ -1,11 +1,9 @@
-'use client'
-import type { ISinglePost } from '@/blog/blog.interface'
+import type { ISinglePost } from '@/Blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
-import { setHiResImg } from '@/shared/lib/setHiResImg'
 import htmlCleaner from '@/shared/lib/htmlCleaner'
 import { Box, Container, Image, Text } from '@chakra-ui/react'
-import '@/blog/singlePost.style.css'
+import '@/shared/content.style.css'
 import React from 'react'
 
 interface SinglePostProps {

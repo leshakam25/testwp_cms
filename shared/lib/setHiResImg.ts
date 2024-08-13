@@ -1,6 +1,7 @@
-import type { IFeaturedImage } from '@/blog/blog.interface'
 
 //Функция которая проверят есть ли в массиве картинки высокого разрешения
+import type { IFeaturedImage } from '@/Blog/blog.interface'
+
 export const setHiResImg = (featuredImage: IFeaturedImage | undefined) => {
 	const sizes = featuredImage?.node.mediaDetails.sizes
 	if (sizes && sizes.length > 4) {

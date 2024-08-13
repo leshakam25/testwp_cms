@@ -1,10 +1,11 @@
-import DOMPurify from 'dompurify'
+import DOMPurify from "isomorphic-dompurify";
 
-export const htmlCleaner = (html: string) => {
-	return DOMPurify.sanitize(html)
-}
+export const htmlCleaner = (html: string): string => {
+		return DOMPurify.sanitize(html);
+};
 
-export default htmlCleaner
+export default htmlCleaner;
+
 
 //РАБОТАЕТ ТОЛЬКО В КЛИЕНТСКИХ КОМПОНЕНТАХ
 //ИСПОЛЬЗОВАТЬ ВСЕГДА С "dangerouslyInnerHTML"

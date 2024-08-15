@@ -1,8 +1,9 @@
+"use client"
 import type { IPosts } from '@/Blog/blog.interface'
 import { GET_ALL_POSTS } from '@/Blog/blog.queries'
 import BlogList from '@/Blog/components/BlogList.component'
 import InfoContent from '@/Info/components/infoContent.component'
-import type { IPageNode } from '@/Info/info.interface'
+import type { IPageNode, PagesResponseData } from '@/Info/info.interface'
 import { getSinglePage } from '@/Info/info.services'
 import LoadingComponent from '@/shared/components/loading.component'
 import { swrFetcher } from '@/shared/lib/swrFetcher'

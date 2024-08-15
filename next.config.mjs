@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	env: {
+		GRAPHQL_API_URL: process.env.GRAPHQL_API_URL,
+	},
 	images: {
 		remotePatterns: [
 			{

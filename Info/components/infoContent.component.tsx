@@ -33,9 +33,9 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 					rounded={'sm'}
 					opacity={0.8}
 				>
-					<DateComponent
-						dateString={pageData.modified}
-					/>
+					{/* <DateComponent */}
+					{/* 	dateString={pageData.modified} */}
+					{/* /> */}
 				</Text>
 				<Text
 					opacity={0.8}

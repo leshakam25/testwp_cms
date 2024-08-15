@@ -4,7 +4,9 @@ import { Container } from '@chakra-ui/react'
 import React from 'react'
 
 interface BlogListProps {
-	allPosts: IPosts | undefined
+	allPosts: any
+	// allPosts: IPosts | undefined
+	
 }
 
 const BlogList = ({ allPosts }: BlogListProps) => {

@@ -1,20 +1,18 @@
 // Функция для получения одного поста по фрагменту (slug)
 import type {
-	IGetSinglePageParams, IPageNode,
-	IPageSlugs,
+	IPageNode,
 	IPageSlugsResponse,
 	PagesResponseData
 } from '@/Info/info.interface'
 import {
-	GET_PAGE_SLUGS,
+	GET_PAGE_SLUGS
 } from '@/Info/info.queries'
 import { graphqlRequest } from '@/shared/lib/graphqlRequest'
 
 
-export const getPageSlugs = async (): Promise<IPageSlugs[] | undefined> => {
+export const getPageSlugs = async (): Promise<{ slug: string }[] | undefined> => {
 	try {
 		const resJson: IPageSlugsResponse = await graphqlRequest(GET_PAGE_SLUGS)
-		console.log(resJson)
 		return resJson.data.pages.nodes
 	} catch (error) {
 		console.error('Ошибка в получении списка страниц:', error)
@@ -22,9 +20,9 @@ export const getPageSlugs = async (): Promise<IPageSlugs[] | undefined> => {
 	}
 }
 
-export const getSinglePage = async ({pageSlug}: IGetSinglePageParams): Promise<IPageNode | undefined> => {
+export const getSinglePage = async ({ pageSlug }: { pageSlug: string }): Promise<IPageNode | undefined> => {
 	try {
-		const query: any = {
+		const query: { query: string } = {
 			query: `
 			query getSinglePage {
 				pages(where: {name: "${pageSlug}"}) {
@@ -37,12 +35,11 @@ export const getSinglePage = async ({pageSlug}: IGetSinglePageParams): Promise<I
 					}
 				}
 			}`
-		};
-		const resJson: PagesResponseData = await graphqlRequest(query.query);
-		console.log(pageSlug);
-		return resJson.data.pages.nodes[0];
+		}
+		const resJson: PagesResponseData = await graphqlRequest(query.query)
+		return resJson.data.pages.nodes[0]
 	} catch (error) {
-		console.error('Ошибка в получении списка страниц:', error);
-		return undefined;
+		console.error('Ошибка в получении списка страниц:', error)
+		return undefined
 	}
-};
+}

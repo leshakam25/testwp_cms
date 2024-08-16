@@ -1,6 +1,6 @@
-import type { ISinglePost } from '@/Blog/blog.interface'
-import { getPostBySlug } from '@/Blog/blog.services'
-import SinglePost from '@/Blog/components/SinglePost.component'
+import type { ISinglePost } from '@/blog/blog.interface'
+import { getPostBySlug } from '@/blog/blog.services'
+import SinglePost from '@/blog/components/SinglePost.component'
 import { Box } from '@chakra-ui/react'
 
 interface BlogPostPageProps {

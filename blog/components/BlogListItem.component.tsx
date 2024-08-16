@@ -1,7 +1,6 @@
-import type { IPost } from '@/Blog/blog.interface'
+import type { IPost } from '@/blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
-import htmlCleaner from '@/shared/lib/htmlCleaner'
 import {
 	Box,
 	Card,
@@ -9,6 +8,7 @@ import {
 	CardFooter, Image,
 	Stack, Text
 } from '@chakra-ui/react'
+import { sanitize } from 'isomorphic-dompurify'
 import Link from 'next/link'
 import React from 'react'
 
@@ -66,7 +66,7 @@ const BlogListItem = ({ post }: BlogListItemProps) => {
 							fontWeight={'regular'}
 							height={120}
 							textAlign={'justify'}
-							dangerouslySetInnerHTML={{ __html: htmlCleaner(post.excerpt) }}
+							dangerouslySetInnerHTML={{ __html: sanitize(post.excerpt) }}
 						>
 						</Box>
 					</CardBody>

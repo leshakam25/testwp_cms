@@ -1,9 +1,9 @@
-import type { ISinglePost } from '@/Blog/blog.interface'
+import type { ISinglePost } from '@/blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
-import htmlCleaner from '@/shared/lib/htmlCleaner'
 import { Box, Container, Image, Text } from '@chakra-ui/react'
-import '@/shared/content.style.css'
+import '@/shared/styles/content.style.css'
+import { sanitize } from 'isomorphic-dompurify'
 import React from 'react'
 
 interface SinglePostProps {
@@ -57,7 +57,7 @@ const SinglePost = ({ singlePost }: SinglePostProps) => {
 			
 			<Box
 				className={'singlePostContent'}
-				dangerouslySetInnerHTML={{ __html: htmlCleaner(singlePost.content) }}
+				dangerouslySetInnerHTML={{ __html: sanitize(singlePost.content) }}
 			/>
 		</Container>
 	)

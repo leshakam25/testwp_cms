@@ -1,9 +1,8 @@
 import type { IPageNode } from '@/Info/info.interface'
-import DateComponent from '@/shared/components/Date.component'
-import htmlCleaner from '@/shared/lib/htmlCleaner'
 import { Box, Container, Text } from '@chakra-ui/react'
+import { sanitize } from 'isomorphic-dompurify'
 import React from 'react'
-import '@/shared/content.style.css'
+import '@/shared/styles/content.style.css'
 
 interface InfoContentProps {
 	pageData: IPageNode | undefined
@@ -27,17 +26,6 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 				alignItems={'center'}
 			>
 				<Text
-					fontSize={14}
-					textAlign={'center'}
-					px={1}
-					rounded={'sm'}
-					opacity={0.8}
-				>
-					{/* <DateComponent */}
-					{/* 	dateString={pageData.modified} */}
-					{/* /> */}
-				</Text>
-				<Text
 					opacity={0.8}
 					px={2}
 					fontSize={24}
@@ -55,7 +43,7 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 				fontWeight={'regular'}
 				height={120}
 				textAlign={'justify'}
-				dangerouslySetInnerHTML={{ __html: htmlCleaner(pageData.content) }}
+				dangerouslySetInnerHTML={{ __html: sanitize(pageData.content) }}
 			>
 			</Box>
 		</Container>

@@ -1,5 +1,5 @@
 import { Providers } from '@/app/providers'
-import TheHeaderComponent from '@/TheHeader/components/theHeader.component'
+import TheHeaderComponent from '@/theHeader/components/theHeader.component'
 import { Container, Grid, GridItem } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'

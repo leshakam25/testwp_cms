@@ -43,7 +43,9 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 				fontWeight={'regular'}
 				height={120}
 				textAlign={'justify'}
-				dangerouslySetInnerHTML={{ __html: sanitize(pageData.content) }}
+				dangerouslySetInnerHTML={{
+					__html: sanitize(pageData.content)
+				}}
 			>
 			</Box>
 		</Container>

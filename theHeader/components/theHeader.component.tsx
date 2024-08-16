@@ -1,16 +1,19 @@
-import LogoTheHeaderComponent from '@/theHeader/components/logoTheHeader.component'
-import NavTheHeaderComponent from '@/theHeader/components/navTheHeader.component'
+
+import LogoTheHeaderComponent from '@/TheHeader/components/logoTheHeader.component'
+import NavTheHeaderComponent from '@/TheHeader/components/navTheHeader.component'
 import { Box, Container, Input } from '@chakra-ui/react'
 
 const TheHeaderComponent = () => {
 	return (
 		<Container
+			zIndex={10}
 			maxW={'full'}
-			position={'relative'}
+			position={'fixed'}
 			display={'flex'}
 			justifyContent={'space-between'}
 			alignItems={'center'}
 			py={2}
+			bgColor={'white'}
 		>
 			<LogoTheHeaderComponent />
 			<Box

@@ -1,5 +1,5 @@
 import { Providers } from '@/app/providers'
-import TheHeaderComponent from '@/theHeader/components/theHeader.component'
+import TheHeaderComponent from '@/TheHeader/components/theHeader.component'
 import { Container, Grid, GridItem } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -28,10 +28,14 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 		<Providers>
 			<Grid
 				className={inter.className}
-				templateAreas={`"header" "main"`}
-				gridTemplateRows='auto 1fr'
-				gridTemplateColumns='1fr'
-				minH='100vh'
+				templateAreas={`
+					"header"
+          "main"
+          `}
+				display={'flex'}
+				flexDirection={'column'}
+				position={'relative'}
+				minH={'100vh'}
 			>
 				{/* Компонент заголовка */}
 				<GridItem area='header' as='header'>
@@ -44,6 +48,17 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 						{children}
 					</Container>
 				</GridItem>
+				
+				{/* <GridItem */}
+				{/* 	area='footer' */}
+				{/* 	as='footer' */}
+				{/* 	position={'absolute'} */}
+				{/* 	bottom={0} */}
+				{/* 	width={'100%'} */}
+				{/* 	 */}
+				{/* > */}
+				{/* 	<TheFooterComponent /> */}
+				{/* </GridItem> */}
 			</Grid>
 		</Providers>
 		</body>

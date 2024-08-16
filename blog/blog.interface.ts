@@ -5,7 +5,6 @@ export interface IPosts {
 	totalPages: number;
 }
 
-
 export interface IPost {
 	id: string;
 	title: string;

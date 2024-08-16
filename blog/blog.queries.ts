@@ -1,4 +1,4 @@
-export const GET_SINGLE_POST_QUERY: string = `
+export const GET_SINGLE_POST: string = `
   query getSinglePost($postSlug: ID!) {
     post(id: $postSlug, idType: SLUG) {
       id

@@ -1,3 +1,4 @@
+import ContactForm from '@/Info/components/ContactForm.component'
 import type { IPageNode } from '@/Info/info.interface'
 import { Box, Container, Text } from '@chakra-ui/react'
 import { sanitize } from 'isomorphic-dompurify'
@@ -18,6 +19,7 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 			maxW={'6xl'}
 			mt={8}
 		>
+			
 			<Box
 				height={120}
 				display={'flex'}
@@ -36,6 +38,8 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 					{pageData.title}
 				</Text>
 			</Box>
+			<ContactForm />
+			
 			<Box
 				className={'singlePostContent'}
 				fontSize={'16px'}

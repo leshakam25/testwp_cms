@@ -1,4 +1,4 @@
-import InfoContent from '@/Info/components/infoContent.component'
+import InfoContent from '@/Info/components/InfoContent.component'
 import type { IPageNode  } from '@/Info/info.interface'
 import { getSinglePage } from '@/Info/info.services'
 

@@ -1,5 +1,4 @@
-
-import type { IFeaturedImage, IFeaturedImageSizes } from '@/blog/blog.interface'
+import type { IFeaturedImage, IFeaturedImageSizes } from '@/Blog/blog.interface'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
 import Image from 'next/image'
 

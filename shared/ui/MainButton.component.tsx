@@ -2,19 +2,23 @@ import { Button } from '@chakra-ui/react'
 
 interface MainButtonProps {
 	title: string
+	type?: 'button' | 'submit' | 'reset' | undefined
+	outlineColor?: string | undefined
+	textColor?: string | undefined
 }
 
-const MainButton = ({ title }: MainButtonProps) => {
+const MainButton = ({ title, type, textColor, outlineColor }: MainButtonProps) => {
 	return (
 		<Button
 			variant={'outline'}
 			rounded={'none'}
 			border='none'
-			color={'gray.600'}
+			color={textColor || 'gray.600'}
 			outline={`1px solid`}
-			outlineColor={'gray.400'}
+			outlineColor={outlineColor || 'gray.400'}
 			textTransform={'uppercase'}
 			fontWeight={300}
+			type={type || 'button'}
 			_hover={{
 				bg: 'gray.200',
 				color: 'red.300',

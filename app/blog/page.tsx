@@ -1,6 +1,6 @@
-import type { IPosts } from '@/blog/blog.interface'
-import { getAllPosts } from '@/blog/blog.services'
-import BlogList from '@/blog/components/BlogList.component'
+import type { IPosts } from '@/Blog/blog.interface'
+import { getAllPosts } from '@/Blog/blog.services'
+import BlogList from '@/Blog/components/BlogList.component'
 import PageTitle from '@/shared/components/PageTitle.component'
 
 const BlogPage = async () => {

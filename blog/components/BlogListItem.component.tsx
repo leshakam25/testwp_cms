@@ -1,4 +1,4 @@
-import type { IPost } from '@/blog/blog.interface'
+import type { IPost } from '@/Blog/blog.interface'
 import DateComponent from '@/shared/components/Date.component'
 import { defaultFeaturedImage } from '@/shared/lib/defaultImage'
 import {

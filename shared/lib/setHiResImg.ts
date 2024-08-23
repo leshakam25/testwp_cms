@@ -1,4 +1,4 @@
-import type { IFeaturedImage } from '@/blog/blog.interface'
+import type { IFeaturedImage } from '@/Blog/blog.interface'
 
 //Функция которая проверят есть ли в массиве картинки высокого разрешения
 export const setHiResImg = (featuredImage: IFeaturedImage | undefined) => {

@@ -20,7 +20,7 @@ export const getPageSlugs = async (): Promise<{ slug: string }[] | undefined> =>
 	}
 }
 
-export const getSinglePage = async ({ pageSlug }: { pageSlug: string }): Promise<IPageNode | undefined> => {
+export const getSinglePage = async ({ pageSlug }: { pageSlug:string } ): Promise<IPageNode | undefined> => {
 	try {
 		const query: { query: string } = {
 			query: `

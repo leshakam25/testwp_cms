@@ -1,4 +1,5 @@
 'use client'
+import { formHandler } from '@/shared/lib/formHandler'
 import React from 'react'
 import MainButton from '@/shared/ui/MainButton.component'
 import {
@@ -28,7 +29,7 @@ const ContactForm =  () => {
 		
 		const jsonData = JSON.stringify(data)
 		
-		const response = await fetch('', {
+		const response = await fetch('/api/formHandler', {
 			method: 'POST',
       headers: {
         'Content-Type': 'application/json',

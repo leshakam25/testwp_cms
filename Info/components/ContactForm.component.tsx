@@ -1,6 +1,5 @@
 'use client'
-import { formHandler } from '@/shared/lib/formHandler'
-import React from 'react'
+import React, { useState } from 'react'
 import MainButton from '@/shared/ui/MainButton.component'
 import {
 	Box,
@@ -13,33 +12,39 @@ import {
 
 interface IFormData {
 	name: string;
-  email: string;
-  message: string;
+	email: string;
+	message: string;
 }
 
-const ContactForm =  () => {
-	const handleSubmit = async  (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		
-		const data: IFormData = {
-			name: event.target.name.value,
-			email: event.target.email.value,
-			message: event.target.message.value
-		}
-		
-		const jsonData = JSON.stringify(data)
-		
-		const response = await fetch('/api/formHandler', {
-			method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonData,
-		})
-		
-		const result = await response.json()
-		console.log(result.data)
-		
+const ContactForm = () => {
+	// const [submitStatus, setSubmitStatus] = useState(false)
+	// const [responseMessage, setResponseMessage] = useState('')
+	// const [alertColor, setAlertColor] = useState('lightgreen')
+	
+	const handleSubmit = async (event: any) => {
+		// event.preventDefault()
+		//
+		// const data: IFormData = {
+		// 	name: event.target.name.value,
+		// 	email: event.target.email.value,
+		// 	message: event.target.message.value
+		// }
+		//
+		// const jsonData = JSON.stringify(data)
+		//
+		// const response = await fetch('/api/form/', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: jsonData
+		// })
+		//
+		// const result = await response.json()
+		// console.log(result.data)
+		//
+		// setSubmitStatus(true)
+		// setResponseMessage(result.data)
 	}
 	
 	return (
@@ -72,7 +77,6 @@ const ContactForm =  () => {
 							type='text'
 							variant='outline'
 							placeholder='ИМЯ'
-							isRequired
 						/>
 					</FormControl>
 					
@@ -83,7 +87,6 @@ const ContactForm =  () => {
 							type='email'
 							variant='outline'
 							placeholder='E-MAIL'
-							isRequired
 						/>
 					</FormControl>
 					
@@ -93,7 +96,6 @@ const ContactForm =  () => {
 							id='message'
 							variant='outline'
 							placeholder='Оставьте сообщение, и мы с вами обязательно свяжемся'
-							isRequired
 						/>
 					</FormControl>
 					

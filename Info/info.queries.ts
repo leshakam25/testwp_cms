@@ -21,3 +21,4 @@ export const GET_SINGLE_PAGE: string = `
     }
 	}
 `
+

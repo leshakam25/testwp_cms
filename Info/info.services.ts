@@ -43,3 +43,4 @@ export const getSinglePage = async ({ pageSlug }: { pageSlug:string } ): Promise
 		return undefined
 	}
 }
+

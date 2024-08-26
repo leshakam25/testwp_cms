@@ -17,7 +17,7 @@ const HomePage = () => {
 				Добро пожаловать
 			</Text>
 			<Box mt={1}>
-				<Link href={'/blog'}>
+				<Link href={'/Blog'}>
 					<MainButton title={'Перейти в блог'} />
 				</Link>
 			</Box>

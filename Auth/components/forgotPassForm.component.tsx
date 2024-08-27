@@ -28,8 +28,7 @@ const ForgotPassForm = () => {
 					>
 						Вспомнить пароль
 					</Text>
-					<Input type='text' placeholder='Username' />
-					<Input type='password' placeholder='Password' />
+					<Input type='email' placeholder='Введите адрес почты' />
 					<Box
 						display={'flex'}
 						flexDirection='row'

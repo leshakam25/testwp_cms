@@ -22,7 +22,7 @@ const navLinks: INavListItem[] = [
 	},
 	{
 		title: 'Блог',
-		href: '/Blog'
+		href: '/blog'
 	},
 	{
 		title: 'Контакты',

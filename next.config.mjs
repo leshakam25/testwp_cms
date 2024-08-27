@@ -2,6 +2,7 @@
 const nextConfig = {
 	env: {
 		GRAPHQL_API_URL: process.env.GRAPHQL_API_URL,
+		WORDPRESS_AUTH_REFRESH_TOKEN: process.env.WORDPRESS_AUTH_REFRESH_TOKEN
 	},
 	images: {
 		remotePatterns: [

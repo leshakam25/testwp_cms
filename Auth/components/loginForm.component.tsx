@@ -28,8 +28,8 @@ const LoginForm = () => {
 					>
 						Вход
 					</Text>
-					<Input type='text' placeholder='Username' />
-					<Input type='password' placeholder='Password' />
+					<Input type='text' placeholder='Логин' />
+					<Input type='password' placeholder='Пароль' />
 					<Box
 						display={'flex'}
 						flexDirection='row'

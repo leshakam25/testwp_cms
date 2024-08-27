@@ -1,12 +1,27 @@
 'use client'
-import Link from 'next/link'
+import { userRegister } from '@/Auth/auth.services'
 import React from 'react'
+import Link from 'next/link'
+import type { IRegisterForm } from '@/Auth/auth.interface'
 import { Box, Button, Input, Text } from '@chakra-ui/react'
+import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
 
 const RegisterForm = () => {
-	const submitHandler = () => {
+	const {
+		handleSubmit,
+		reset,
+		register,
+		formState: {
+			errors,
+			isSubmitting
+		}
+	} = useForm<IRegisterForm>()
 	
+	const onSubmit: SubmitHandler<FieldValues> = (values) => {
+		userRegister(values);
+		console.log(values.password)
 	}
+	
 	return (
 		<Box
 			width={'100%'}
@@ -16,7 +31,7 @@ const RegisterForm = () => {
 			justifyContent='center'
 			alignItems='center'
 		>
-			<form onSubmit={submitHandler}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<Box
 					display={'flex'}
 					flexDirection='column'
@@ -28,8 +43,27 @@ const RegisterForm = () => {
 					>
 						Регистрация
 					</Text>
-					<Input type='text' placeholder='Username' />
-					<Input type='password' placeholder='Password' />
+					<Input
+						{...register('name', {
+							required: 'This is required',
+						})}
+						type='text'
+						placeholder='Введите логин'
+					/>
+					{/* <Input */}
+					{/* 	{...register('email', { */}
+					{/* 		required: 'This is required', */}
+					{/* 	})} */}
+					{/* 	type='email' */}
+					{/* 	placeholder='Адрес электронной почты' */}
+					{/* /> */}
+					<Input
+						{...register('password', {
+							required: 'This is required',
+						})}
+						type='password'
+						placeholder='Пароль'
+					/>
 					<Box
 						display={'flex'}
 						flexDirection='row'

@@ -1,5 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import type { IContactForm } from '@/Info/info.interface'
+import { sendContactData } from '@/Info/info.services'
+import React from 'react'
 import MainButton from '@/shared/ui/MainButton.component'
 import {
 	Box,
@@ -9,48 +11,22 @@ import {
 	Text,
 	Textarea
 } from '@chakra-ui/react'
-
-interface IFormData {
-	name: string;
-	email: string;
-	message: string;
-}
+import { useForm } from 'react-hook-form'
 
 const ContactForm = () => {
-	// const [submitStatus, setSubmitStatus] = useState(false)
-	// const [responseMessage, setResponseMessage] = useState('')
-	// const [alertColor, setAlertColor] = useState('lightgreen')
+	const {
+		handleSubmit,
+		register,
+		reset
+	} = useForm<IContactForm>()
 	
-	const handleSubmit = async (event: any) => {
-		// event.preventDefault()
-		//
-		// const data: IFormData = {
-		// 	name: event.target.name.value,
-		// 	email: event.target.email.value,
-		// 	message: event.target.message.value
-		// }
-		//
-		// const jsonData = JSON.stringify(data)
-		//
-		// const response = await fetch('/api/form/', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: jsonData
-		// })
-		//
-		// const result = await response.json()
-		// console.log(result.data)
-		//
-		// setSubmitStatus(true)
-		// setResponseMessage(result.data)
+	const onSubmit = async (values: IContactForm) => {
+		sendContactData(values);
+		reset();
 	}
-	
 	return (
 		<Box
 			maxW='320px'
-			rounded='lg'
 			border='1px solid lightgray'
 			p={4}
 		>
@@ -63,7 +39,7 @@ const ContactForm = () => {
 				Свяжитесь с нами
 			</Text>
 			
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<Box
 					display='flex'
 					flexDirection='column'
@@ -73,7 +49,10 @@ const ContactForm = () => {
 					<FormControl>
 						<FormLabel htmlFor='firstname'>Ваше имя:</FormLabel>
 						<Input
-							id='firstname'
+							{...register('name', {
+								required: 'This is required'
+							})}
+							id='name'
 							type='text'
 							variant='outline'
 							placeholder='ИМЯ'
@@ -83,6 +62,9 @@ const ContactForm = () => {
 					<FormControl>
 						<FormLabel htmlFor='email'>Электронная почта:</FormLabel>
 						<Input
+							{...register('email', {
+								required: 'This is required'
+							})}
 							id='email'
 							type='email'
 							variant='outline'
@@ -93,6 +75,9 @@ const ContactForm = () => {
 					<FormControl>
 						<FormLabel htmlFor='message'>Сообщение:</FormLabel>
 						<Textarea
+							{...register('message', {
+								required: 'This is required'
+							})}
 							id='message'
 							variant='outline'
 							placeholder='Оставьте сообщение, и мы с вами обязательно свяжемся'

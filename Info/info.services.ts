@@ -1,5 +1,6 @@
 // Функция для получения одного поста по фрагменту (slug)
 import type {
+	IContactForm,
 	IPageNode,
 	IPageSlugsResponse,
 	PagesResponseData
@@ -20,7 +21,7 @@ export const getPageSlugs = async (): Promise<{ slug: string }[] | undefined> =>
 	}
 }
 
-export const getSinglePage = async ({ pageSlug }: { pageSlug:string } ): Promise<IPageNode | undefined> => {
+export const getSinglePage = async ({ pageSlug }: { pageSlug: string }): Promise<IPageNode | undefined> => {
 	try {
 		const query: { query: string } = {
 			query: `
@@ -44,3 +45,31 @@ export const getSinglePage = async ({ pageSlug }: { pageSlug:string } ): Promise
 	}
 }
 
+export const sendContactData = async (values: IContactForm) => {
+	
+	try {
+		const res = await fetch('/api/form', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(values)
+		})
+		
+		// Проверка, что ответ есть и статус успешен
+		if (!res.ok) {
+			throw new Error(`Ошибка: ${res.status} ${res.statusText}`)
+		}
+		
+		const data = await res.json()
+		
+		// Проверка, что данные существуют
+		if (!data) {
+			throw new Error('Пустой ответ от сервера')
+		}
+		return data
+	} catch (error) {
+		console.error('Ошибка при отправке формы:', error)
+		throw error // Пробрасываем ошибку дальше, если нужно
+	}
+}

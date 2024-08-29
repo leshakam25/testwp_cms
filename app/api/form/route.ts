@@ -1,20 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import type { IContactForm } from '@/Info/info.interface';
+import { NextResponse } from 'next/server';
 
-// Интерфейс для данных запроса
-interface RequestBody {
-	name: string;
-	email: string;
-	message: string;
-}
-
-// Обработчик для метода POST
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-	const body: RequestBody = req.body;
+export async function POST(req: Request) {
+	const body: IContactForm = await req.json();
 	
 	if (!body.name || !body.email || !body.message) {
-		return res.status(400).json({ data: 'Name, email, and message are required' });
+		return NextResponse.json({ error: 'Name, email, and message is required' }, { status: 400 });
 	}
 	
-	return res.status(200).json({ data: 'Success!' });
+	return NextResponse.json({ data: 'Success!' }, { status: 200 });
 }
-

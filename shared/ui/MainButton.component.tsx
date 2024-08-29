@@ -7,7 +7,12 @@ interface MainButtonProps {
 	textColor?: string | undefined
 }
 
-const MainButton = ({ title, type, textColor, outlineColor }: MainButtonProps) => {
+const MainButton = ({
+	                    title,
+	                    type,
+	                    textColor,
+	                    outlineColor,
+                    }: MainButtonProps) => {
 	return (
 		<Button
 			variant={'outline'}

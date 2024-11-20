@@ -19,7 +19,6 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 			maxW={'6xl'}
 			mt={8}
 		>
-			
 			<Box
 				height={120}
 				display={'flex'}

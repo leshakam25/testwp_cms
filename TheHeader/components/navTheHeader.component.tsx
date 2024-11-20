@@ -9,10 +9,6 @@ interface INavListItem {
 
 const navLinks: INavListItem[] = [
 	{
-		title: 'Вход',
-		href: '/auth'
-	},
-	{
 		title: 'Главная',
 		href: '/'
 	},

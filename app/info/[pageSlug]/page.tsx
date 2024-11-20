@@ -1,6 +1,6 @@
 import InfoContent from '@/Info/components/InfoContent.component'
-import type { IPageNode } from '@/Info/info.interface'
-import { getSinglePage } from '@/Info/info.services'
+import type { IPageNode, IPageSlugs, IPageSlugsResponse } from '@/Info/info.interface'
+import { getPageSlugs, getSinglePage } from '@/Info/info.services'
 
 interface InfoPageSlugProps {
 	params: {
@@ -8,15 +8,17 @@ interface InfoPageSlugProps {
 	};
 }
 
-const InfoPageSlug = async ({ params }: InfoPageSlugProps) => {
+const InfoPage = async ({ params }: InfoPageSlugProps) => {
+	// const pageSlugs: IPageSlugs[] | undefined = await getPageSlugs()
 	const { pageSlug } = params
 	const data: IPageNode | undefined = await getSinglePage({ pageSlug: pageSlug })
 	
 	return (
 		<>
+			{/* {JSON.stringify(pageSlugs)} */}
 			{!!data && <InfoContent pageData={data} />}
 		</>
 	)
 }
 
-export default InfoPageSlug
+export default InfoPage

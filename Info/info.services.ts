@@ -1,7 +1,7 @@
 // Функция для получения одного поста по фрагменту (slug)
 import type {
 	IContactForm,
-	IPageNode,
+	IPageNode, IPageSlugs,
 	IPageSlugsResponse,
 	PagesResponseData
 } from '@/Info/info.interface'
@@ -11,13 +11,13 @@ import {
 import { graphqlRequest } from '@/shared/lib/graphqlRequest'
 
 
-export const getPageSlugs = async (): Promise<{ slug: string }[] | undefined> => {
+export const getPageSlugs = async (): Promise<IPageSlugs[] | undefined> => {
 	try {
 		const resJson: IPageSlugsResponse = await graphqlRequest(GET_PAGE_SLUGS)
 		return resJson.data.pages.nodes
 	} catch (error) {
 		console.error('Ошибка в получении списка страниц:', error)
-		return undefined
+		return
 	}
 }
 
@@ -38,6 +38,7 @@ export const getSinglePage = async ({ pageSlug }: { pageSlug: string }): Promise
 			}`
 		}
 		const resJson: PagesResponseData = await graphqlRequest(query.query)
+		console.log(resJson.data.pages)
 		return resJson.data.pages.nodes[0]
 	} catch (error) {
 		console.error('Ошибка в получении списка страниц:', error)

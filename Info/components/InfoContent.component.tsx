@@ -1,4 +1,5 @@
 import ContactForm from '@/Info/components/ContactForm.component'
+import ContactForm2 from '@/Info/components/ContactForm.component'
 import type { IPageNode } from '@/Info/info.interface'
 import { Box, Container, Text } from '@chakra-ui/react'
 import { sanitize } from 'isomorphic-dompurify'
@@ -37,7 +38,10 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 					{pageData.title}
 				</Text>
 			</Box>
-			
+			{!!pageData.slug &&
+				pageData.slug === 'kontakty' &&
+				<ContactForm2 />
+			}
 			<Box
 				className={'singlePostContent'}
 				fontSize={'16px'}
@@ -50,12 +54,6 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 				}}
 			>
 			</Box>
-			
-			
-			{!!pageData.slug &&
-				pageData.slug === 'kontakty' &&
-				<ContactForm />
-			}
 		</Container>
 	)
 }

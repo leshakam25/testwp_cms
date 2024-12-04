@@ -5,6 +5,7 @@ interface MainButtonProps {
 	type?: 'button' | 'submit' | 'reset' | undefined
 	outlineColor?: string | undefined
 	textColor?: string | undefined
+	onClick?: () => void
 }
 
 const MainButton = ({
@@ -12,12 +13,14 @@ const MainButton = ({
 	                    type,
 	                    textColor,
 	                    outlineColor,
+	                    onClick
                     }: MainButtonProps) => {
 	return (
 		<Button
 			variant={'outline'}
 			rounded={'none'}
 			border='none'
+			onClick={onClick || undefined}
 			color={textColor || 'gray.600'}
 			outline={`1px solid`}
 			outlineColor={outlineColor || 'gray.400'}

@@ -9,13 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.4",
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^2.10.4",
+    "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.11.5",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.2.10",
     "isomorphic-dompurify": "^2.14.0",
-    "next": "14.2.4",
+    "next": "^14.2.19",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",

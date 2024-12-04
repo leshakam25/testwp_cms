@@ -1,7 +1,9 @@
+'use client'
 import type { IPosts } from '@/Blog/blog.interface'
 import { getAllPosts } from '@/Blog/blog.services'
 import BlogList from '@/Blog/components/BlogList.component'
 import PageTitle from '@/shared/components/PageTitle.component'
+import { Button } from '@chakra-ui/react'
 
 const BlogPage = async () => {
 	const data: IPosts | undefined = await getAllPosts()

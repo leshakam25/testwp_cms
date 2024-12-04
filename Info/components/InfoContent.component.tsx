@@ -37,10 +37,6 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 					{pageData.title}
 				</Text>
 			</Box>
-			{!!pageData.slug &&
-				pageData.slug === 'kontakty' &&
-				<ContactForm />
-			}
 			
 			<Box
 				className={'singlePostContent'}
@@ -54,6 +50,12 @@ const InfoContent = ({ pageData }: InfoContentProps) => {
 				}}
 			>
 			</Box>
+			
+			
+			{!!pageData.slug &&
+				pageData.slug === 'kontakty' &&
+				<ContactForm />
+			}
 		</Container>
 	)
 }

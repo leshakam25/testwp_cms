@@ -5,42 +5,50 @@ import { sendContactData } from '@/Info/info.services'
 import MainButton from '@/shared/ui/MainButton.component'
 import {
 	Box,
-	Button,
 	Drawer, DrawerContent,
 	DrawerOverlay,
 	FormControl,
 	FormLabel,
 	Input,
-	Text,
 	Textarea,
 	DrawerBody,
 	DrawerFooter,
 	DrawerHeader,
-	DrawerCloseButton, useDisclosure, Stack,
-	Select
+	DrawerCloseButton, useDisclosure
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
 const ContactForm = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
-	const firstField = React.useRef()
+	const firstField = React.useRef(null)  // Добавим ссылку на первое поле
 	const {
 		handleSubmit,
 		register,
-		reset
+		reset,
+		formState: { errors }
 	} = useForm<IContactForm>()
 	
 	const onSubmit = async (values: IContactForm) => {
-		sendContactData(values)
-		reset()
+		try {
+			await sendContactData(values)
+			reset()  // Очистить форму после успешной отправки
+		} catch (error) {
+			console.error('Ошибка отправки данных:', error)
+		}
 	}
+	
+	// Для кнопки сброса:
+	const onReset = () => {
+		reset()  // Является прямым вызовом reset()
+	}
+	
 	return (
 		<>
 			<MainButton onClick={onOpen} title={'Свяжитесь с нами'} />
 			<Drawer
 				isOpen={isOpen}
 				placement='top'
-				// initialFocusRef={firstField}
+				initialFocusRef={firstField}  // Установить фокус на первое поле
 				onClose={onClose}
 			>
 				<DrawerOverlay />
@@ -50,33 +58,17 @@ const ContactForm = () => {
 						Обратная связь
 					</DrawerHeader>
 					
-					<DrawerBody
-						py={8}
-					>
+					<DrawerBody py={8}>
 						<form onSubmit={handleSubmit(onSubmit)}>
-							<Box
-								display='flex'
-								flexDirection='column'
-								className={'contact-form'}
-								pb={4}
-							>
-								<Box
-									display='flex'
-									flexDirection='row'
-									gap={4}
-								>
-									<FormControl>
-										<FormLabel
-											lineHeight={'50%'}
-											htmlFor='firstname'
-										>
+							<Box display='flex' flexDirection='column' className={'contact-form'} pb={4}>
+								<Box display='flex' flexDirection='row' gap={4}>
+									<FormControl isInvalid={!!errors.name}>
+										<FormLabel lineHeight={'50%'} htmlFor='name'>
 											Ваше имя:
 										</FormLabel>
 										<Input
-											// ref={firstField}
-											{...register('name', {
-												required: 'This is required'
-											})}
+											{...register('name', { required: 'This is required' })}
+											ref={firstField}  // Добавление ссылки
 											id='name'
 											type='text'
 											variant='outline'
@@ -85,17 +77,12 @@ const ContactForm = () => {
 										/>
 									</FormControl>
 									
-									<FormControl>
-										<FormLabel
-											lineHeight={'50%'}
-											htmlFor='email'
-										>
+									<FormControl isInvalid={!!errors.email}>
+										<FormLabel lineHeight={'50%'} htmlFor='email'>
 											Электронная почта:
 										</FormLabel>
 										<Input
-											{...register('email', {
-												required: 'This is required'
-											})}
+											{...register('email', { required: 'This is required' })}
 											id='email'
 											type='email'
 											variant='outline'
@@ -107,16 +94,12 @@ const ContactForm = () => {
 							</Box>
 							
 							<Box>
-								<FormControl>
-									<FormLabel
-										lineHeight={'50%'}
-										htmlFor='message'
-									>
-										Сообщение:</FormLabel>
+								<FormControl isInvalid={!!errors.message}>
+									<FormLabel lineHeight={'50%'} htmlFor='message'>
+										Сообщение:
+									</FormLabel>
 									<Textarea
-										{...register('message', {
-											required: 'This is required'
-										})}
+										{...register('message', { required: 'This is required' })}
 										id='message'
 										variant='outline'
 										placeholder='Оставьте сообщение, и мы с вами обязательно свяжемся'
@@ -128,12 +111,10 @@ const ContactForm = () => {
 					</DrawerBody>
 					
 					<DrawerFooter borderTopWidth='1px'>
+						<MainButton type='submit' title='Отправить' />
 						<MainButton
-							type='submit'
-							title='Отправить'
-						/>
-						<MainButton
-							type='reset'
+							type='button'  // Убираем тип 'reset' и делаем сброс с помощью обработчика
+							onClick={onReset}
 							title='Сброс'
 							textColor='red.300'
 							outlineColor='red.200'

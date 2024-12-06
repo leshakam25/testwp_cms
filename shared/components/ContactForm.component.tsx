@@ -18,9 +18,16 @@ import {
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
+/**
+ * Компонент, отображающий форму обратной связи в модальном окне.
+ * Форма включает поля для имени, электронной почты, телефона и сообщения.
+ * Кроме того, она содержит кнопку отправки и кнопку сброса.
+ *
+ * @returns {React.FC} - Функциональный компонент для формы обратной связи.
+ */
 const ContactForm = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
-	const firstField = React.useRef(null)  // Добавим ссылку на первое поле
+	const firstField = React.useRef(null)  // Ссылка на первое поле ввода
 	const {
 		handleSubmit,
 		register,
@@ -28,18 +35,25 @@ const ContactForm = () => {
 		formState: { errors }
 	} = useForm<IContactForm>()
 	
+	/**
+	 * Обрабатывает отправку формы, отправляя данные контакта на сервер.
+	 *
+	 * @param {IContactForm} values - Объект, содержащий данные контакта.
+	 */
 	const onSubmit = async (values: IContactForm) => {
 		try {
 			await sendContactData(values)
-			reset()  // Очистить форму после успешной отправки
+			reset()  // Очищает форму после успешной отправки
 		} catch (error) {
 			console.error('Ошибка отправки данных:', error)
 		}
 	}
 	
-	// Для кнопки сброса:
+	/**
+	 * Обрабатывает сброс формы, очищая все поля ввода.
+	 */
 	const onReset = () => {
-		reset()  // Является прямым вызовом reset()
+		reset()  // Прямой вызов reset() для очистки формы
 	}
 	
 	return (
@@ -48,7 +62,7 @@ const ContactForm = () => {
 			<Drawer
 				isOpen={isOpen}
 				placement='top'
-				initialFocusRef={firstField}  // Установить фокус на первое поле
+				initialFocusRef={firstField}  // Устанавливает фокус на первом поле ввода
 				onClose={onClose}
 			>
 				<DrawerOverlay />
@@ -67,7 +81,7 @@ const ContactForm = () => {
 											Ваше имя:
 										</FormLabel>
 										<Input
-											{...register('name', { required: 'This is required' })}
+											{...register('name', { required: 'Обязательное поле' })}
 											ref={firstField}  // Добавление ссылки
 											id='name'
 											type='text'
@@ -82,11 +96,28 @@ const ContactForm = () => {
 											Электронная почта:
 										</FormLabel>
 										<Input
-											{...register('email', { required: 'This is required' })}
+											{...register('email', {
+												required: 'Обязательное поле',
+												pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+											})}
 											id='email'
 											type='email'
 											variant='outline'
 											placeholder='E-MAIL'
+											borderRadius={0}
+										/>
+									</FormControl>
+									
+									<FormControl isInvalid={!!errors.phone}>
+										<FormLabel lineHeight={'50%'} htmlFor='phone'>
+											Телефон:
+										</FormLabel>
+										<Input
+											{...register('phone', { required: 'Обязательное поле', pattern: /^\+?[1-9]\d{1,14}$/ })}
+											id='phone'
+											type='tel'
+											variant='outline'
+											placeholder='НОМЕР ТЕЛЕФОНА'
 											borderRadius={0}
 										/>
 									</FormControl>
@@ -99,7 +130,7 @@ const ContactForm = () => {
 										Сообщение:
 									</FormLabel>
 									<Textarea
-										{...register('message', { required: 'This is required' })}
+										{...register('message', { required: 'Обязательное поле' })}
 										id='message'
 										variant='outline'
 										placeholder='Оставьте сообщение, и мы с вами обязательно свяжемся'

@@ -1,11 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-interface RequestBody {
-	firstName: string;
-	email: string;
-	message: string;
-}
-
 /**
  * Функция для обработки формы отправки.
  *
@@ -20,6 +14,13 @@ interface RequestBody {
  * @returns Объект ответа Next.js с кодом состояния 200 и сообщением об успехе,
  *          либо объект ответа с кодом состояния 400 и сообщением об ошибке.
  */
+
+interface RequestBody {
+	firstName: string;
+	email: string;
+	message: string;
+}
+
 
 export const formHandler = (req: NextApiRequest, res: NextApiResponse) => {
     const body = req.body as RequestBody;
